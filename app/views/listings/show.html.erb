@@ -19,6 +19,10 @@
 
   <dt>Price:</dt>
   <dd><%= @listing.price %></dd>
-  Service  : <%= rating_for @user, "service" %>
+  
+  <dt>Address:</dt>
+  <dd><%= @listing.address %></dd>
 
+  <dt>Coordinat:</dt>
+  <dd><%= @listing.latitude %>,<%= @listing.longitude %></dd>
 </dl>
