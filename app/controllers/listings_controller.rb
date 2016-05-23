@@ -5,16 +5,29 @@ class ListingsController < ApplicationController
   # GET /listings.json
   def index
     @listings = Listing.all
+    @hash = Gmaps4rails.build_markers(@listings) do |listing, marker|
+        marker.lat listing.latitude
+        marker.lng listing.longitude
+      end
   end
 
   # GET /listings/1
   # GET /listings/1.json
   def show
+    @hash = Gmaps4rails.build_markers(@jobs) do |job, marker|
+      marker.lat job.latitude
+      marker.lng job.longitude
+    end
+
   end
 
   # GET /listings/new
   def new
     @listing = Listing.new
+    @hash = Gmaps4rails.build_markers(@listing) do |listing, marker|
+        marker.lat listing.latitude
+        marker.lng listing.longitude
+      end
   end
 
   # GET /listings/1/edit
