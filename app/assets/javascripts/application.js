@@ -13,22 +13,9 @@
 
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
-//= require bootstrap
 //= require underscore
 //= require gmaps/google
 //= require geocomplete
+//= require turbolinks
+//= require bootstrap
 //= require_tree .
-
-$(function() {
-  $("#special").geocomplete({
-  	map: "#map",
-  	mapOptions: {
-	    zoom: 40
-	  },
-	  markerOptions: {
-	    draggable: true
-	  },
-	  details: "#my_form"
-  });
-});

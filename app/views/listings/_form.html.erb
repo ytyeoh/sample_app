@@ -45,8 +45,15 @@
       <%= f.submit class: "btn btn-primary" %>
     </div>
   </div>
-
-
-
-<br><br>
+<script type="text/javascript">$("#special").geocomplete({
+    map: "#map",
+    mapOptions: {
+      zoom: 40
+    },
+    markerOptions: {
+      draggable: true
+    },
+    details: "#special"
+  });
+</script>
 <% end %>
