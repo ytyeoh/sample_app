@@ -24,10 +24,6 @@ class ListingsController < ApplicationController
   # GET /listings/new
   def new
     @listing = Listing.new
-    @hash = Gmaps4rails.build_markers(@listing) do |listing, marker|
-        marker.lat listing.latitude
-        marker.lng listing.longitude
-      end
   end
 
   # GET /listings/1/edit
