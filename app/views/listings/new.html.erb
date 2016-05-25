@@ -1,5 +1,8 @@
+<!-- Geocomplete plugin -->
+<script src="//cdn.jsdelivr.net/jquery.geocomplete/1.6.4/jquery.geocomplete.min.js"></script>
+<script src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
 <div class="page-header">
-  <%= link_to listings_path, class: 'btn btn-default' do %>
+  <%= link_to listings_path, 'data-no-turbolink' => true, class: 'btn btn-default' do %>
     <span class="glyphicon glyphicon-list-alt"></span>
     Back
   <% end %>
@@ -7,11 +10,3 @@
 </div>
 
 <%= render 'form' %>
-<script type="text/javascript">
-  handler = Gmaps.build('Google');
-  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-    markers = handler.addMarkers(<%=raw @hash.to_json %>);
-    handler.bounds.extendWith(markers);
-    handler.fitMapToBounds();
-  });
-</script>
