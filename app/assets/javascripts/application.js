@@ -17,8 +17,18 @@
 //= require bootstrap
 //= require underscore
 //= require gmaps/google
+//= require geocomplete
 //= require_tree .
 
 $(function() {
-$("#geo-input").geocomplete();
-});  
+  $("#special").geocomplete({
+  	map: "#map",
+  	mapOptions: {
+	    zoom: 40
+	  },
+	  markerOptions: {
+	    draggable: true
+	  },
+	  details: "#my_form"
+  });
+});

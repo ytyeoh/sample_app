@@ -31,18 +31,22 @@
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :address, class: "col-sm-2 control-label", id: "geo-input" %>
+    <%= f.label :address, class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
-      <%= f.text_field :address, class: "form-control" %>
+      <%= f.text_field :address, class: "form-control", id: "special" %>
     </div>
+    <div style='width: 90%;'>
+    <div id="map" style='width: 90%; height: 400px;'></div>
+    </div>
+
   </div>
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
       <%= f.submit class: "btn btn-primary" %>
     </div>
   </div>
-  <div style='width: 800px;'>
-    <div id="map" style='width: 800px; height: 400px;'>
-    </div>
-</div>
+
+
+
+<br><br>
 <% end %>
