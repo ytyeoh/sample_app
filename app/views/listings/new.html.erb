@@ -2,7 +2,7 @@
 <script src="//cdn.jsdelivr.net/jquery.geocomplete/1.6.4/jquery.geocomplete.min.js"></script>
 <script src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
 <div class="page-header">
-  <%= link_to listings_path, 'data-no-turbolink' => true, class: 'btn btn-default' do %>
+  <%= link_to listings_path, class: 'btn btn-default', 'data-no-turbolink' => true do %>
     <span class="glyphicon glyphicon-list-alt"></span>
     Back
   <% end %>
@@ -10,3 +10,21 @@
 </div>
 
 <%= render 'form' %>
+<script type="text/javascript">
+$("#special").geocomplete({
+    map: "#map",
+    mapOptions: {
+      zoom: 10,
+      scrollwheel: true
+    },
+    location: "<%= current_user.stage %>",
+    markerOptions: {
+      draggable: true
+    },
+    details: "#special"
+  });
+$("#special").bind("geocode:dragged", function(event, latLng){
+          $("#latitude").val(latLng.lat());
+          $("#longitude").val(latLng.lng());
+        });
+</script>
