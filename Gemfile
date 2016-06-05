@@ -25,6 +25,9 @@ gem 'devise'
 gem 'geocoder'
 gem 'gmaps4rails'
 gem 'geocomplete_rails'
+gem 'figaro'
+gem 'gon', '~> 5.1.2'
+gem 'braintree'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rails_12factor', group: :production
