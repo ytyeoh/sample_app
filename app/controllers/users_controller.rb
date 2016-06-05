@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @braintree_token = generate_client_token
     @review = Review.new
     @reviews = Review.where(user_id:params[:id])
   end
@@ -66,6 +67,14 @@ class UsersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
+    end
+
+    def generate_client_token
+      if current_user.has_payment_info?
+        Braintree::ClientToken.generate(customer_id: current_user.braintree_customer_id)
+      else
+        Braintree::ClientToken.generate
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
