@@ -4,7 +4,7 @@ class ListingsController < ApplicationController
   # GET /listings
   # GET /listings.json
   def index
-    @listings = Listing.all
+    @listings = Listing.all.order("published_at DESC")
     @hash = Gmaps4rails.build_markers(@listings) do |listing, marker|
         marker.lat listing.latitude
         marker.lng listing.longitude
@@ -35,9 +35,11 @@ class ListingsController < ApplicationController
   # POST /listings.json
   def create
     @listing = Listing.new(listing_params)
-
+    @listing.published_at = DateTime.now
     respond_to do |format|
       if @listing.save
+        @listing.search_tags << @listing.city << @listing.state << @listing.postal_code << @listing.country
+        @listing.save
         format.html { redirect_to @listing, notice: 'Listing was successfully created.' }
         format.json { render :show, status: :created, location: @listing }
       else
@@ -79,6 +81,6 @@ class ListingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
-      params.require(:listing).permit(:name, :desc, :price, :address, :latitude, :longitude)
+      params.require(:listing).permit(:name, :desc, :price, :address, :latitude, :longitude, :token, :coin, :published_at)
     end
 end
