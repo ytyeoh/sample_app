@@ -12,6 +12,7 @@ class UsersController < ApplicationController
     @braintree_token = generate_client_token
     @review = Review.new
     @reviews = Review.where(user_id:params[:id])
+    @user_credit = UserCredit.where(user_id: current_user)
   end
 
   # GET /users/new
