@@ -28,6 +28,8 @@ gem 'geocomplete_rails'
 gem 'figaro'
 gem 'gon', '~> 5.1.2'
 gem 'braintree'
+gem 'aws-sdk', '~> 2'
+gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rails_12factor', group: :production
