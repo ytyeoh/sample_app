@@ -2,6 +2,9 @@ class Listing < ActiveRecord::Base
 	belongs_to :user
 	# attr_accessible :address, :latitude, :longitude
 	geocoded_by :address
+	has_attached_file :image
+	validates_attachment :image,
+                     content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] }
 	reverse_geocoded_by :latitude, :longitude do |obj,results|
 	  if geo = results.first
 	  	obj.state 	=geo.state

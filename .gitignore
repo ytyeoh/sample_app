@@ -19,3 +19,4 @@
 .DS_Store
 .dump.rdb
 .byebug_history
+/public/system
