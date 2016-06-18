@@ -17,7 +17,7 @@ class UserCreditsController < ApplicationController
       current_user.save
       respond_to do |format|
         if @credit.save
-          format.html { redirect_to :back, notice: 'You was successfully purchase credits.' }
+          format.html { redirect_to user_path(current_user), notice: 'You was successfully purchase credits.' }
           format.json { render :show, status: :created, location: @credit }
         else
           format.html { render :new }
@@ -37,14 +37,6 @@ class UserCreditsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_credit
       @credit = UserCredit.find(params[:id])
-    end
-
-    def generate_client_token
-      if current_user.has_payment_info?
-        Braintree::ClientToken.generate(customer_id: current_user.braintree_customer_id)
-      else
-        Braintree::ClientToken.generate
-      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

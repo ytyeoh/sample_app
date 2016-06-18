@@ -28,6 +28,8 @@
 
   <dt>Coordinat:</dt>
   <dd><%= @listing.latitude %>,<%= @listing.longitude %></dd>
+  <dt>Owner:</dt>
+  <dd><%= link_to @listing.user.name, user_path(@listing.user_id) %></dd>
 </dl>
 <div style='width: 90%;'>
   <div id="map" style='width: 90%; height: 400px;'></div>

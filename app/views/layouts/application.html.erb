@@ -18,6 +18,15 @@
   <%= csrf_meta_tags %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  
+  <script>
+  var clientToken = "<%= @braintree_token%>";
+
+  braintree.setup(clientToken, "dropin", {
+    container: "payment-form"
+  });
+  </script>
+  <script src="https://js.braintreegateway.com/js/braintree-2.23.0.min.js"></script>
 </head>
 <body>
   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -29,12 +38,13 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <%= link_to "Project name", "#", class: "navbar-brand" %>
+        <%= link_to "Project name", root_path, class: "navbar-brand" %>
       </div>
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li class="active"><%= link_to 'home', root_path %></li>
+          <li class="active"><%= link_to 'User', users_path %></li>
           <li><%= link_to 'listings', listings_path,'data-no-turbolink' => true %></li>
+          <li><a href="#" data-toggle="modal" data-target="#topup">Payment</a></li>
           <% if user_signed_in? %>
             <li><%= link_to 'Edit account', edit_user_registration_path %></li>
             <li><%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %></li>
@@ -47,6 +57,8 @@
       </div>
     </div>
   </nav>
+
+<%= render partial: "layouts/payment_form" %>
   <div class="container">
     <% flash.each do |name, msg| %>
       <%= content_tag :div, class: "alert alert-#{ name == :error ? "danger" : "success" } alert-dismissable", role: "alert" do %>

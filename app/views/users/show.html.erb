@@ -103,8 +103,6 @@
                 <label for="user_creditcredit">Credit Purchase</label> <br>
                 <input type= "number" name="user_credit[credits]"> 
               </div>        
-              
-            <script src="https://js.braintreegateway.com/js/braintree-2.23.0.min.js"></script>
             </div>
             <div class="modal-footer">
               <input type="submit" class= "btn btn-info" value="Pay">
@@ -134,11 +132,3 @@
     scoreName: 'review[rating]'
   });
 </script>
-<script>
-var clientToken = "<%= @braintree_token%>";
-
-braintree.setup(clientToken, "dropin", {
-  container: "payment-form"
-});
-</script>
-<script src="https://js.braintreegateway.com/js/braintree-2.23.0.min.js"></script>
