@@ -81,7 +81,6 @@ Rails.application.configure do
       secret_access_key: ENV.fetch('AWS_SECRET_ACCESS_KEY'),
     }
   }
-}
 
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
