@@ -27,8 +27,8 @@
   <dd><%= @listing.address %></dd>
 
   <dt>Image:</dt>
-  <dd><%= @listing.image %></dd>
-
+  <dd><%= image_tag(@listing.image) %></dd>
+  
   <dt>Coordinat:</dt>
   <dd><%= @listing.latitude %>,<%= @listing.longitude %></dd>
   <dt>Owner:</dt>
