@@ -30,6 +30,7 @@ gem 'gon', '~> 5.1.2'
 gem 'braintree'
 gem 'aws-sdk', '~> 1.5.7'
 gem "paperclip", '~> 4.3'
+gem 'paperclip-compression'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rails_12factor', group: :production
