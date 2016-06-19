@@ -28,7 +28,9 @@
 
   <dt>Coordinat:</dt>
   <dd><%= @listing.latitude %>,<%= @listing.longitude %></dd>
-
+  <dt>Owner:</dt>
+  <dd><%= link_to @listing.user.name, user_path(@listing.user_id) %></dd>
+  <dd><%= image_tag(@listing.user.image) %></dd>
 </dl>
 <div style='width: 90%;'>
   <div id="map" style='width: 90%; height: 400px;'></div>
@@ -37,9 +39,9 @@
   <%= f.hidden_field :published_at , :value => Time.now, class: "form-control" %>
   <%= f.submit "Bump",  class: "btn btn-primary" if current_user.present? && current_user.id == @listing.user_id && @listing.published_at < 1.day.ago%>
 <% end %>
-
+<% if @listing.published_at > 1.day.ago %>
   <p>About <%= ((@listing.published_at + 1.day - Time.now )/3600).round %> hour to bump again<p>
-
+<%end%>
 <script type="text/javascript">
   handler = Gmaps.build('Google');
   handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
