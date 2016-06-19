@@ -18,7 +18,7 @@
   <dd><%= @user.email %></dd>
 
   <dt>Image:</dt>
-  <dd> <%= image_tag (@user.image.url) %></dd>
+  <dd> <%= image_tag @user.image.url(:medium) %></dd>
   <dt>Identity card:</dt>
   <dd><%= @user.identity_card %></dd>
 
