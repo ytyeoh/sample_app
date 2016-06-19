@@ -30,7 +30,7 @@
   <dd><%= @listing.latitude %>,<%= @listing.longitude %></dd>
   <dt>Owner:</dt>
   <dd><%= link_to @listing.user.name, user_path(@listing.user_id) %></dd>
-  <dd><%= image_tag(@listing.user.image) %></dd>
+  <dd><%= image_tag(@listing.user.image.url) %></dd>
 </dl>
 <div style='width: 90%;'>
   <div id="map" style='width: 90%; height: 400px;'></div>
