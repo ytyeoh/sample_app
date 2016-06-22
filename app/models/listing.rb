@@ -1,6 +1,9 @@
 class Listing < ActiveRecord::Base
 	belongs_to :user
+<<<<<<< HEAD
 	searchkick batch_size: 200 , autocomplete: ['city']
+=======
+>>>>>>> 834d122784344f3ebd32f35789ef0f1dca944236
 	# attr_accessible :address, :latitude, :longitude
 	geocoded_by :address
 	has_attached_file :image

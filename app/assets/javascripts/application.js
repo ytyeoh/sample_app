@@ -16,7 +16,6 @@
 //= require underscore
 //= require gmaps/google
 //= require geocomplete
-//= require typeahead
 //= require turbolinks
 //= require bootstrap
 //= require_tree .
