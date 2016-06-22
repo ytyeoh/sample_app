@@ -2,7 +2,12 @@ Rails.application.routes.draw do
 
   
   resources :user_credits, only: [:new, :index]
-  resources :listings
+  resources :listings do 
+    collection do
+      post :import
+      get :autocomplete # <= add this line
+    end
+  end
 
   devise_for :users
   resources :users do 
