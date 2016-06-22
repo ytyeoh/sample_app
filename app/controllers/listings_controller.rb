@@ -78,6 +78,9 @@ class ListingsController < ApplicationController
     end
   end
 
+  def autocomplete
+    render json: Listing.search(params[:query], autocomplete: true, limit: 10).map(&:city)
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
