@@ -4,7 +4,12 @@ class ListingsController < ApplicationController
   # GET /listings
   # GET /listings.json
   def index
-    @listings = Listing.all.order("published_at DESC")
+    if params[:query].present?
+      @listings = Listing.search params[:query], page: params[:page],order: {published_at: :desc}
+      @listings = Listing.search params[:query], page: params[:page], order: {published_at: :desc}
+    else
+      @listings = Listing.all.order("published_at DESC")#.page params[:page]
+    end
     @hash = Gmaps4rails.build_markers(@listings) do |listing, marker|
         marker.lat listing.latitude
         marker.lng listing.longitude
@@ -71,6 +76,10 @@ class ListingsController < ApplicationController
       format.html { redirect_to listings_url, notice: 'Listing was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def autocomplete
+    render json: Listing.search(params[:query], autocomplete: true, limit: 10).map(&:city)
   end
 
   private
