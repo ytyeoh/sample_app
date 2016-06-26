@@ -17,13 +17,6 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.9.3/typeahead.min.js" %>
   <%= csrf_meta_tags %>
-  <script> 
-    $('#city').typeahead({
-      name: "listing",
-      displayKey: 'city',
-      remote: "/listings/autocomplete?query=%QUERY"
-    });
-  </script>
   <script src="https://js.braintreegateway.com/js/braintree-2.23.0.min.js"></script>
 </head>
 <body>
@@ -42,7 +35,6 @@
         <ul class="nav navbar-nav">
           <li class="active"><%= link_to 'User', users_path %></li>
           <li><%= link_to 'listings', listings_path,'data-no-turbolink' => true %></li>
-          <li><a href="#" data-toggle="modal" data-target="#topup">Payment</a></li>
         </ul>
         <%= form_tag listings_path, method: :get do %>
           <div class="navbar-form navbar-left" role="search">
@@ -55,6 +47,7 @@
         <% end %>
         <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
+            <li><a href="#" data-toggle="modal" data-target="#topup">Payment</a></li>
             <li><%= link_to 'Edit account', edit_user_registration_path %></li>
             <li><%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %></li>
           <li><%= link_to current_user.name, root_path %></li>
