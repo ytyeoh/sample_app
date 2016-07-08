@@ -5,7 +5,7 @@ class ListingsController < ApplicationController
   # GET /listings.json
   def index
     if params[:query].present?
-      @listings = Listing.search params[:query], page: params[:page], fields: [:search_tags], where: {imove_in: params[:imove_in], price: {gte: params[:begin_price], lte: params[:end_price]}}, order: {published_at: :desc}
+      @listings = Listing.search params[:query], page: params[:page], fields: [:search_tags], where: {imove_in: params[:imove_in], price: {gte: params[:begin_price].slice(/\D*([0-9]*)\s.\s\D*([0-9]*)/, 1), lte: params[:begin_price].slice(/\D*([0-9]*)\s.\s\D*([0-9]*)/, 2)}}, order: {published_at: :desc}
     else
       @listings = Listing.all.order("published_at DESC")#.page params[:page]
     end
