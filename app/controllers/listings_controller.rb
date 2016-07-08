@@ -4,9 +4,8 @@ class ListingsController < ApplicationController
   # GET /listings
   # GET /listings.json
   def index
-
     if params[:query].present?
-      @listings = Listing.search params[:query], page: params[:page], fields: [:search_tags], where: {imove_in: params[:imove_in]}, order: {published_at: :desc}
+      @listings = Listing.search params[:query], page: params[:page], fields: [:search_tags], where: {imove_in: params[:imove_in], price: {gte: params[:begin_price], lte: params[:end_price]}}, order: {published_at: :desc}
     else
       @listings = Listing.all.order("published_at DESC")#.page params[:page]
     end
@@ -91,6 +90,6 @@ class ListingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
-      params.require(:listing).permit(:name, :desc, :price, :address, :latitude, :longitude, :token, :coin, :published_at, :image)
+      params.require(:listing).permit(:name, :desc, :price, :address, :latitude, :longitude, :token, :coin, :published_at, :image, :imove_in)
     end
 end
