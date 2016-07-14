@@ -6,5 +6,7 @@ class UsersController < ApplicationController
   end
   def destroy
 byebug
+    @favorite = current_user.favorite_listings.where(listing_id: params[:id])
+    @favorite.destroy
   end
 end
