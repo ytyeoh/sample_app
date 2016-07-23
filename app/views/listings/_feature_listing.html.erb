@@ -1,0 +1,19 @@
+<% if user_signed_in? %>
+  <% if current_user.favorite_listing? @listing.id %>
+    <%= form_tag("/favorite_listings/#{@listing.id}", class: "unlike-listing", id: 'unlike_listing',  method: :delete) do %>
+      <button class="like-btn fav-btn"><i class="fa fa-heart text-primary"></i> <span class="fav-text">You Fav'd this</span></button>
+    <% end %>
+    <%= form_tag("/favorite_listing", class: "like-listing hidden", id: 'like_listing',   method: :post) do %>
+      <%= hidden_field_tag 'listing_id', @listing.id %>
+      <button class="like-btn fav-btn"><i class="fa fa-heart-o"></i> <span class="fav-text">Fav this</span></button>
+    <% end %>
+  <% else %>
+    <%= form_tag("/favorite_listings/#{@listing.id}", class: "unlike-listing hidden", id: 'unlike_listing',  method: :delete) do %>
+      <button class="like-btn fav-btn"><i class="fa fa-heart text-primary"></i> <span class="fav-text">You Fav'd this</span></button>
+    <% end %>
+    <%= form_tag("/favorite_listings", class: "like-listing", id: 'like_listing',   method: :post) do %>
+      <%= hidden_field_tag 'listing_id', @listing.id %>
+      <button class="like-btn fav-btn"><i class="fa fa-heart-o"></i> <span class="fav-text">Fav this</span></button>
+    <% end %>
+  <% end %>
+<% end %>

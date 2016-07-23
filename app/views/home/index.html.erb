@@ -3,7 +3,7 @@
     <%= form_tag listings_path, method: :get do %>
       <div class="col-md-12">
         <div class="form-group">
-          <%= text_field_tag :query, params[:query], class: 'form-control', id: 'city', placeholder: "Where you want to rent?",  autocomplete: "off" %>
+          <%= text_field_tag :query, params[:query], class: 'form-control city', placeholder: "Where you want to rent?",  autocomplete: "off" %>
           <%= select_tag :imove_in, "<option value=false>Normal Move In</option><option value=true>Instant Move In</option>".html_safe %>
           <p>
             <label for="amount">Price range:</label>
@@ -33,8 +33,13 @@
     <h3>Why Us</h3>
   </div>
 </div>
+<!-- load jQuery 1.10.2 -->
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script type="text/javascript">
+var jQuery_1_10_2 = $.noConflict(true);
+</script>
 <script>
-  $(function() {
+  jQuery_1_10_2(function() {
     $( "#slider-range" ).slider({
       range: true,
       min: 500,

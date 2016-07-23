@@ -38,6 +38,7 @@
 <div style='width: 90%;'>
   <div id="map" style='width: 90%; height: 400px;'></div>
 </div>
+<%= render 'feature_listing' %>
 <%= form_for(@listing, html: { class: "form-horizontal", role: "form" }) do |f| %>
   <%= f.hidden_field :published_at , :value => Time.now, class: "form-control" %>
   <%= f.submit "Bump",  class: "btn btn-primary" if current_user.present? && current_user.id == @listing.user_id && @listing.published_at < 1.day.ago%>
