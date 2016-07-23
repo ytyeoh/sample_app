@@ -7,6 +7,12 @@ class ApplicationController < ActionController::Base
     @braintree_token = generate_client_token
   end
 
+  def json_success(status: 200, success: [])
+    head status: status and return if success.empty?
+
+    render json: success.to_json, status: status
+  end
+
   def generate_client_token
     if current_user
       if current_user.has_payment_info?
