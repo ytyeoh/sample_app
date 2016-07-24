@@ -48,8 +48,11 @@
       <% end %>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
+          <% unless current_user.image.url.empty? %>
+          <li><%= image_tag current_user.image.url, class: "img-circle" %></li>
+            <% end %>
           <li><a href="#" data-toggle="modal" data-target="#topup">Payment</a></li>
-          <li><%= link_to 'Edit account', edit_user_registration_path %></li>
+          <li><%= link_to 'Edit account', edit_user_path(current_user) %></li>
           <li><%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %></li>
         <li><%= link_to current_user.name, root_path %></li>
         <% else %>
