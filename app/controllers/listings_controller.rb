@@ -24,7 +24,10 @@ class ListingsController < ApplicationController
       marker.lat listing.latitude
       marker.lng listing.longitude
     end
-
+    unless @listing.user == current_user
+      @listing.view += 1
+      @listing.save
+    end
   end
 
   # GET /listings/new
