@@ -15,5 +15,10 @@ class Listing < ActiveRecord::Base
 	    obj.country = geo.country
 	  end
 	end
+
 	after_validation :reverse_geocode, :geocode, :if => :address_changed?
+
+	
+	enum type: { landed: 1, high_rise: 2, other: 3 }
+	enum furnish_type: { fully: 1, partialy: 2, basic: 3 }
 end
