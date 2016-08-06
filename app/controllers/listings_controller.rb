@@ -13,7 +13,7 @@ class ListingsController < ApplicationController
     @hash = Gmaps4rails.build_markers(@listings) do |listing, marker|
         marker.lat listing.latitude
         marker.lng listing.longitude
-      end
+    end
   end
 
   # GET /listings/1
@@ -94,6 +94,6 @@ class ListingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
-      params.require(:listing).permit(:name, :desc, :price, :address, :latitude, :longitude, :token, :coin, :published_at, :image, :imove_in)
+      params.require(:listing).permit(:name, :desc, :price, :address, :latitude, :longitude, :token, :coin, :published_at, :image, :imove_in, :property, :furnished, :area, :parking, :bathroom, :bedroom)
     end
 end

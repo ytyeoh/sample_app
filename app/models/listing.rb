@@ -19,6 +19,6 @@ class Listing < ActiveRecord::Base
 	after_validation :reverse_geocode, :geocode, :if => :address_changed?
 
 	
-	enum type: { landed: 1, high_rise: 2, other: 3 }
-	enum furnish_type: { fully: 1, partialy: 2, basic: 3 }
+	enum property: { landed: 1, 'High Rise': 2, other: 3 }
+	enum furnished: { fully: 1, partialy: 2, basic: 3 }
 end

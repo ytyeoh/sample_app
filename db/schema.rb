@@ -48,9 +48,9 @@ ActiveRecord::Schema.define(version: 20160803154907) do
     t.integer  "bedroom"
     t.integer  "bathroom"
     t.integer  "parking"
-    t.integer  "furnish_type"
+    t.integer  "furnished"
     t.integer  "area"
-    t.integer  "type"
+    t.integer  "property"
   end
 
   create_table "reviews", force: :cascade do |t|
