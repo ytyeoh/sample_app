@@ -9,6 +9,19 @@
   <h1>Listing listings</h1>
 </div>
 <div class="row">
+  <div class="col-md-3 hidden-xs">
+    filter
+  </div>
+  <div class="col-md-9 col-xs-12">
+    <%= render 'item' %>
+  </div>
+  <div class="col-md-12 hidden-xs fixed-map">
+    <div style='width: 100%;'>
+    <div id="map" style='width: 90%; height: 400px;'></div>
+    </div>
+  </div>
+</div>
+<div class="row">
   <div class="col-md-6 hidden-xs fixed-map">
     <div style='width: 100%;'>
     <div id="map" style='width: 90%; height: 400px;'></div>

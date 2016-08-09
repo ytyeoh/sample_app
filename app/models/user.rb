@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   has_many :user_credits
   has_attached_file :image,
     :styles => {
-      :thumb => "60x60#",
+      :thumb => "50x50#",
       :medium => "200x200#"
   }
 

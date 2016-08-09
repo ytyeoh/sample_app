@@ -1,30 +1,26 @@
 <% @listings.each do |listing| %>
   <li class="show">
-    <div class="thumbnail">
+    <div class="thumbnail col-md-4">
       <div class="row">
-        <div class="col-md-6">
-                  <%= image_tag listing.image, width: "100%" %>
+        <div class="col-md-12">
+          <%= image_tag listing.image, width: "100%" %>
         </div>
-          <div class="col-md-6">
-            <h3><%= listing.name %></h3>
-              <div class="row">
-                <div class="col-md-6 address">
-                  <h6><%= listing.address %></h6>
-                </div>
-                <div class="col-md-6">
-                  <%= listing.city %>
-                </div>
-                <div class="col-md-6">
-                  <h5>RM<%= listing.price %> per month</h5>
-                </div>
-                <div class="col-md-6">
-                  <h5>Instant Move In:<%= listing.imove_in %> </h5>
-                </div>
-                <div class="col-md-6">
-                  <%= link_to 'Know more', listing, class: "btn btn-info" %>
-                </div>
-            </div>
-          </div>
+        <div class="col-md-12">
+          <h3><%= listing.name %></h3>
+        </div>
+        <div class="col-md-6">
+          <%= listing.city %>
+        </div>
+        <div class="col-md-6">
+          <h5>RM<%= listing.price %></h5>
+        </div>
+        <div class="col-md-6">
+          <h5>Instant Move In:<%= listing.imove_in %> </h5>
+        </div>
+        <div class="col-md-6">
+          <%= link_to 'Know more', listing, class: "btn btn-info" %>
+        </div>
+
         </div>
     </div>
   </li>
