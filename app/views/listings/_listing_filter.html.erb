@@ -1,0 +1,10 @@
+<%= form_tag listings_path, method: :get do %>
+  <div class="col-md-12">
+    <div class="form-group">
+      <%= text_field_tag :query, params[:query], class: 'form-control city', placeholder: "Where you want to rent?",  autocomplete: "off" %>
+      <%= select_tag :imove_in, "<option value=false>Normal Move In</option><option value=true>Instant Move In</option>".html_safe %>
+      
+      <%= submit_tag 'Get your room now!', class: 'btn btn-info' %>
+    </div>
+  </div>
+<% end %>
