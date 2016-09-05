@@ -32,6 +32,7 @@
     }
     .navbar-nav>li {
         float: none;
+        font-size: 12px;
     }
     .navbar-nav>li>a {
         padding-top: 10px;
@@ -62,17 +63,21 @@
   /*Placeholder Colors*/
   .form-control::-webkit-input-placeholder {
   color:#fff;
+  font-size: 14px;
   }
   .form-control:-moz-placeholder { /* Firefox 18- */
   color:#fff;
+  font-size: 14px;
   }
    
   .form-control::-moz-placeholder { /* Firefox 19+ */
   color:#fff;
+  font-size: 14px;
   }
    
   .form-control:-ms-input-placeholder {
   color:#fff;
+  font-size: 14px;
   }
 }
 
