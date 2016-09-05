@@ -18,7 +18,7 @@
 //= require geocomplete
 //= require typeahead
 //= require turbolinks
-//= require bootstrap
+//= require bootstrap-sprockets
 //= require_tree .
 
 function readURL(input) {
