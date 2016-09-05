@@ -7,7 +7,7 @@ gem 'rails', '4.2.6'
 gem 'pg', '~> 0.15'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
-gem 'bootstrap-generators', git: 'git://github.com/decioferreira/bootstrap-generators.git'
+gem 'bootstrap-sass', '~> 3.3.6'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -32,7 +32,7 @@ gem 'aws-sdk', '~> 1.5.7'
 gem "paperclip", '~> 4.3'
 gem 'paperclip-compression'
 gem 'searchkick'
-gem 'font-awesome-rails'
+gem 'material_icons'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rails_12factor', group: :production
