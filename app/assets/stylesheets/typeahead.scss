@@ -1,6 +1,7 @@
 .twitter-typeahead {
   position: relative;
 }
+
 .twitter-typeahead .tt-query,
 .twitter-typeahead .tt-hint {
   margin: 0;
@@ -15,6 +16,13 @@
   -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
+@media screen and (max-width: 400px) {
+  .twitter-typeahead .tt-query,
+  .twitter-typeahead .tt-hint {
+    width: 110px;
+  }
+}
+
 .has-warning .twitter-typeahead .tt-query,
 .has-warning .twitter-typeahead .tt-hint {
   border-color: #c09853;
