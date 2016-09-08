@@ -3,6 +3,13 @@ $dark-green: #29a3b9;
 $light-grey: #f6f6f6;
 $white: #fff;
 
+.white-text{
+  color: $white;  
+}
+
+.primary-text{
+  color: $primary-color;
+}
 
 .dark-green-text{
   color: $dark-green;
@@ -10,4 +17,8 @@ $white: #fff;
 
 .light-grey-background{
   background-color: $light-grey;
+}
+
+.big-text{
+  font-size: 14px;
 }
