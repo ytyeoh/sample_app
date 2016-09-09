@@ -9,7 +9,12 @@
             <label for="amount">Price range:</label>
             <input type="text" name='begin_price' id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
           </p>
-          <div id="slider-range"></div>
+          <div data-role="rangeslider">
+        <label for="price-min">Price:</label>
+        <input type="range" name="price-min" id="price-min" value="200" min="0" max="1000">
+        <label for="price-max">Price:</label>
+        <input type="range" name="price-max" id="price-max" value="800" min="0" max="1000">
+      </div>
         <%= submit_tag 'Get your room now!', class: 'btn btn-info' %>
         </div>
       </div>
