@@ -1,99 +1,14 @@
-    .navbar-header {
-        float: none;
-    }
-    .navbar-collapse.collapse.in {
-      display: block !important;
-    }
-
-    .navbar-default .navbar-toggle {
-      border-color: $primary-color;
-    }
-
-    .navbar-default .navbar-toggle .icon-bar {
-      background-color: $white;
-    }
-
-    .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
-      background-color: $dark-green;
-    }
-    .navbar-toggle {
-        display: block;
-    }
-    .navbar-collapse {
-        border-top: 1px solid transparent;
-        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
-    }
-    .navbar-collapse.collapse {
-        display: none!important;
-    }
-    .navbar-nav {
-        float: none!important;
-        margin: 7.5px -15px;
-    }
-    .navbar-nav>li {
-        float: none;
-        font-size: 12px;
-    }
-    .navbar-nav>li>a {
-        padding-top: 10px;
-        padding-bottom: 10px;
-    }
-
-.navbar-primary{
-  background-color: $primary-color;
-
-  .city{
-    background-color: $primary-color;
-    border: none;
-    -webkit-box-shadow: none;
-    padding-top: 15px;
-
-  }
-
-  .search-bar {
-    padding: 6px 12px;
-    font-size: 14px;
-    font-weight: normal;
-    line-height: 1;
-    color: #555555;
-    text-align: center;
-    background-color: $primary-color;
-    border: 0px ;
-    border-radius: 4px;
-  }
-
-  /*Placeholder Colors*/
-  .form-control::-webkit-input-placeholder {
-  color:#fff;
-  font-size: 14px;
-  }
-  .form-control:-moz-placeholder { /* Firefox 18- */
-  color:#fff;
-  font-size: 14px;
-  }
-   
-  .form-control::-moz-placeholder { /* Firefox 19+ */
-  color:#fff;
-  font-size: 14px;
-  }
-   
-  .form-control:-ms-input-placeholder {
-  color:#fff;
-  font-size: 14px;
-  }
+nav .brand-logo.left {
+  left: 0.5rem;
+  padding: 0;
 }
 
-.navbar-default .navbar-nav > li > a:hover {
-  background-color: $white;
-  color: $primary-color;
+nav .button-collapse.right{
+  right: 0.5rem;
+  pading: 0;
 }
 
-.navbar-default .navbar-form {
-  border: 0px;
-}
-.navbar-search{
-    margin-right: 15px;
-    padding: 9px 10px;
-    margin-top: 8px;
-    margin-bottom: 8px;
+nav .input-field.center{
+  left: 80%;
+  transform: translateX(-50%);
 }

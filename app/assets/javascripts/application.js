@@ -13,6 +13,7 @@
 
 //= require jquery
 //= require materialize-sprockets
+//= require materialize/extras/nouislider
 //= require underscore
 //= require gmaps/google
 //= require geocomplete
@@ -20,11 +21,46 @@
 //= require turbolinks
 //= require_tree .
 
-  $(document).ready(function(){
-    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-    $('.modal-trigger').leanModal();
-    $(".button-collapse").sideNav();
+$(document).ready(function(){
+  $('.modal-trigger').leanModal();
+  $(".button-collapse").sideNav({
+    edge: 'right'
   });
+  var html5Slider = document.getElementById('html5');
+
+  noUiSlider.create(html5Slider, {
+    start: [ 600, 900 ],
+    connect: true,
+    range: {
+      'min': 500,
+      'max': 2500
+    },
+    margin: 50,
+    step: 50
+  });
+
+  var gte = document.getElementById('gte');
+  var lte= document.getElementById('lte');
+
+  html5Slider.noUiSlider.on('update', function( values, handle ) {
+
+    var value = values[handle];
+
+    if ( handle ) {
+      gte.value = Math.round(value);
+    } else {
+      lte.value = Math.round(value);
+    }
+  });
+
+  lte.addEventListener('change', function(){
+    html5Slider.noUiSlider.set([this.value, null]);
+  });
+
+  gte.addEventListener('change', function(){
+    html5Slider.noUiSlider.set([null, this.value]);
+  });
+});
 
 
 function readURL(input) {
