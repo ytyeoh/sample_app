@@ -26,6 +26,7 @@ $(document).ready(function(){
   $(".button-collapse").sideNav({
     edge: 'right'
   });
+  $('select').material_select();
   var html5Slider = document.getElementById('html5');
 
   noUiSlider.create(html5Slider, {
@@ -39,8 +40,8 @@ $(document).ready(function(){
     step: 50
   });
 
-  var gte = document.getElementById('gte');
-  var lte= document.getElementById('lte');
+  var gte = document.getElementById('higher');
+  var lte= document.getElementById('lower');
 
   html5Slider.noUiSlider.on('update', function( values, handle ) {
 
