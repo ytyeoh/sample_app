@@ -17,12 +17,21 @@
   }
 
   .social-media-icon{
-    margin: 20px;
+    padding-top: 20px;
+  }
+
+  .user-link{
+    margin-bottom: 10px;
+    height: 1rem;
   }
 
   .user-link li{
     margin: 10px 20px;
     font-size: 12px;
+  }
+
+  .normal-link{
+    height: 1rem;
   }
 
   .normal-link li{
@@ -43,7 +52,9 @@
   }
 
   .copyright{
-    margin: 20px;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    padding-bottom: 20px;
   }
 }
 
