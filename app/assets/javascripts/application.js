@@ -23,8 +23,11 @@
 
 $(document).ready(function(){
   $('.modal-trigger').leanModal();
+  $('.close').sideNav('hide');
   $(".button-collapse").sideNav({
-    edge: 'right'
+    edge: 'right',
+    menuWidth: 200,
+    closeOnClick: true
   });
   $('select').material_select();
   var html5Slider = document.getElementById('html5');
