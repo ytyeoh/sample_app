@@ -30,6 +30,13 @@
     font-size: 12px;
   }
 
+  @media screen and (max-width: 600px) {
+    .user-link li{
+      margin: 10px 10px;
+      font-size: 12px;
+    }
+  }
+
   .normal-link{
     height: 1rem;
   }
