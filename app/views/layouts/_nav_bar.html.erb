@@ -4,20 +4,26 @@
     <a href="#" data-activates="mobile-demo" class="right button-collapse show-on-large"><i class="material-icons">menu</i></a>
 
     <ul class="side-nav" id="mobile-demo">
-      <li>
-        <div class="card-panel grey lighten-5 z-depth-1">
-          <div class="row valign-wrapper">
-            <div class="col s4">
-              <%= image_tag current_user.image.url, class:'circle responsive-img' %>
-            </div>
-            <div class="col s8">
-              <span class="black-text">
-                <%= current_user.name %>
-              </span>
+      <% if user_signed_in? %>
+        <li>
+          <div class="card-panel grey lighten-5 z-depth-1">
+            <div class="row valign-wrapper">
+              <div class="col s4">
+                <%= image_tag current_user.image.url, class:'circle responsive-img' %>
+              </div>
+              <div class="col s8">
+                <span class="black-text">
+                  <%= current_user.name %>
+                </span>
+              </div>
             </div>
           </div>
-        </div>
-      </li>
+        </li>
+        <li><%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %></li>
+      <% else %>
+        <li><%= link_to 'Sign in', new_user_session_path %></li>
+        <li><%= link_to 'Sign up', new_user_registration_path %></li>
+      <% end %>
       <li><a href="#modal1" class="modal-trigger">Payment</a></li>
       <li><a href="sass.html">Sass</a></li>
       <li><a href="badges.html">Components</a></li>
