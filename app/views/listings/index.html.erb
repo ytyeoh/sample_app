@@ -1,19 +1,23 @@
 <%= render 'google_map_script' %>
 <div class="page-header">
-  <%= link_to new_listing_path, class: 'btn btn-primary','data-no-turbolink' => true do %>
-    <span class="glyphicon glyphicon-plus"></span>
-    New Listing
+  <div class="result inline-block">
+    <span><%= params[:query] %></span> 
+    <span class="grey-text total"><i><%= @listings.count %> results</i></span>
+  </div>
+  <div class="inline-block right">
+  <%= link_to new_listing_path, class: 'btn-floating btn-large waves-effect waves-light','data-no-turbolink' => true do %>
+    <i class="material-icons">add</i>
   <% end %>
-  <h1>Listing listings</h1>
+  </div>
 </div>
 <div class="row">
-  <div class="col-md-6 hidden-xs fixed-map">
+  <div class="col hidden-xs hide fixed-map">
     <div style='width: 100%;'>
     <div id="map" style='width: 90%; height: 400px;'></div>
     </div>
   </div>
-  <div class="col-md-6">
-    <%= render 'item' %> 
+  <div class="col s12">
+    <%= render partial: 'item', collection: @listings, as: :listing %> 
   </div>
 </div>
 
