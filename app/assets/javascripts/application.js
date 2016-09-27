@@ -17,12 +17,14 @@
 //= require materialize/extras/nouislider
 //= require underscore
 //= require gmaps/google
+//= require application/global_event
 //= require geocomplete
 //= require typeahead
 //= require turbolinks
 //= require_tree .
 
 $(document).ready(function(){
+  globalEvent.initialize();
   $('.modal-trigger').leanModal();
   $('.close').sideNav('hide');
   $(".button-collapse").sideNav({
