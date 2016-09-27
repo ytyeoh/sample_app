@@ -1,3 +1,23 @@
+<div id="modal1" class="modal  modal-fixed-footer">
+  <form id="checkout" method="post" action="/credits/checkout">
+    <div class="modal-content">
+      <h4 class="modal-title">Topup Credit</h4>
+      <div id="payment-form">
+        <div class="input-field col s12">
+          <input type= "number" name="user_credit[credits]" id="user_creditcredit"> 
+          <label for="user_creditcredit">Credit Purchase</label>
+        </div>        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <input type="submit" class= "btn waves-effect waves-green btn-info" value="Pay">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>       
+    </div>
+  </form>
+</div>
+
+
+
 <div class="modal fade" id="topup" role="dialog">
     <div class="modal-dialog">     
       <!-- Modal content-->
@@ -13,8 +33,6 @@
               <label for="user_creditcredit">Credit Purchase</label> <br>
               <input type= "number" name="user_credit[credits]"> 
             </div>        
-
-          <script src="https://js.braintreegateway.com/js/braintree-2.23.0.min.js"></script>
           </div>
           <div class="modal-footer">
             <input type="submit" class= "btn btn-info" value="Pay">
