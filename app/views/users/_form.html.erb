@@ -11,17 +11,17 @@
       </ul>
     </div>
   <% end %>
-  <div class="col l6">
+  <div class="col l8">
     <div class="row">
-      <div class="input-field col s12">
+      <div class="input-field col s8">
         <%= f.label :name, class: "active" %>
         <%= f.text_field :name, class: "validate" %>
       </div>
-      <div class="input-field col s12">
+      <div class="input-field col s8">
         <%= f.label :email, class: "active" %>
           <%= f.text_field :email, class: "validate" %>
       </div>
-      <div class="input-field file-field col s12">
+      <div class="input-field file-field col s8">
         <div class="btn">
           <span>File</span>
           <input type="file">
@@ -35,26 +35,21 @@
           <% end %>
         </div>
       </div>
-      <div class="input-field col s12">
+      <div class="input-field col s8">
         <%= f.label :contact, class: "active" %>
         <%= f.text_field :contact, class: "validate" %>
       </div>
-      <div class="input-field col s12">
+      <div class="input-field col s8">
         <%= f.label :identity_card, class: "active" %>
         <%= f.text_field :identity_card, class: "validate" %>
       </div>
-      <div class="input-field col s12">
+      <div class="input-field col s8">
         <%= f.label :stage, class: "active" %>
         <%= f.text_field :stage, class: "validate" %>
       </div>
-    </div>
-  </div>
-  <div class="col l2">
-    <div class="row">
-      <div class="input-field col s12">
-        <%= f.submit class: "btn btn-primary" %>
+      <div class="input-field col s12 bottom">
+        <%= f.submit class: "btn btn-primary " %>
       </div>
     </div>
   </div>
-  
 <% end %>
