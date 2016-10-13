@@ -1,11 +1,14 @@
 <div class="page-header user">
   <h1>Profile Detail</h1>
 </div>
-<div class="row myrow">
+<div class="row">
   <div class="col l4 user">
     <%= image_tag current_user.image.url, class:'circle ' %>
   </div>
   <%= render 'form' %>
+</div>
+<div class="user">
+  <h2>Password</h2>
 </div>
 
 <%= link_to 'change password', edit_user_registration_path, class: 'btn btn-warning' %>
