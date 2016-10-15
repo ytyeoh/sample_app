@@ -10,8 +10,10 @@
 <div class="user">
   <h2>Password</h2>
 </div>
+<div class="row">
+  <%= link_to 'change password', edit_user_registration_path, class: 'btn waves-effect waves-light red' %>
+</div>
 
-<%= link_to 'change password', edit_user_registration_path, class: 'btn btn-warning' %>
 
 <%= link_to users_path, class: 'btn btn-default' do %>
   <span class="glyphicon glyphicon-list-alt"></span>
