@@ -32,6 +32,7 @@ $(document).ready(function(){
     menuWidth: 200,
     closeOnClick: true
   });
+  Materialize.updateTextFields();
   $('select').material_select();
   var html5Slider = document.getElementById('html5');
 

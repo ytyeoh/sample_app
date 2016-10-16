@@ -1,6 +1,5 @@
 class Users::RegistrationsController < Devise::RegistrationsController
 
-  
   private
 
   def update_resource(resource, params)
