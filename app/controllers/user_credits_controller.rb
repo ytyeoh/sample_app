@@ -10,10 +10,19 @@ class UserCreditsController < ApplicationController
   def create
     @credit = UserCredit.new(credit_params)
     @credit.user_id = current_user.id
-    @credit.amount = params[:user_credit][:credits]
+    case params[:user_credit][:amount]
+    when 20
+      @credit.credit = 30
+    when 50
+      @credit.credit = 30
+    when 80
+      @credit.credit = 90
+    end
+    # @credit.amount = params[:user_credit][:credits]
     @result = Braintree::Transaction.sale(amount: @credit.amount,payment_method_nonce: params[:payment_method_nonce])
     if @result.success?
-      current_user.update(braintree_customer_id: @result.transaction.customer_details.id, credit: @credit.amount) unless current_user.has_payment_info?
+      byebug
+      current_user.update(braintree_customer_id: @result.transaction.customer_details.id, credit: @credit.credit) unless current_user.has_payment_info?
       current_user.save
       respond_to do |format|
         if @credit.save
