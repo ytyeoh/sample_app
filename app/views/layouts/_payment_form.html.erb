@@ -3,10 +3,47 @@
     <div class="modal-content">
       <h4 class="modal-title">Topup Credit</h4>
       <div id="payment-form">
-        <div class="input-field col s12">
-          <input type= "number" name="user_credit[credits]" id="user_creditcredit"> 
-          <label for="user_creditcredit">Credit Purchase</label>
-        </div>        
+        <div class="row">
+        <div class="col s4">
+          <div class="radio">
+            <input name="user_credit[amount]" id="user_creditcredit1" type="radio" class='with-gap' value='20'/>
+            <label for="user_creditcredit1">
+              <div class="payment-header">Newbie choice</div>
+              <div class="payment-get">Get </div>
+              <div class="payment-price">30</div>
+              <div class="payment-credit">credits</div>
+              <div class="payment-desc">for only </div>
+              <span class ="btn">RM20</span>
+            </label>
+          </div>
+        </div>
+        <div class="col s4">
+          <div class="radio">
+            <input name="user_credit[amount]" id="user_creditcredit2" type="radio" class='with-gap' value='50'  />
+            <label for="user_creditcredit2">
+              <div class="payment-header">Popular choice</div>
+              <div class="payment-get">Get </div>
+              <div class="payment-price">70</div>
+              <div class="payment-credit">credits</div>
+              <div class="payment-desc">for only </div>
+              <span class ="btn">RM20</span>
+            </label>
+          </div>
+        </div>
+        <div class="col s4">
+          <div class="radio">
+            <input name="user_credit[amount]" id="user_creditcredit3" type="radio" class='with-gap' value='80'/>
+            <label for="user_creditcredit3">
+              <div class="payment-header">Exclusive choice</div>
+              <div class="payment-get">Get </div>
+              <div class="payment-price">90</div>
+              <div class="payment-credit">credits</div>
+              <div class="payment-desc">for only </div>
+              <span class ="btn">RM80</span>
+            </label>
+          </div>
+        </div>
+        </div>
       </div>
     </div>
     <div class="modal-footer">
@@ -15,36 +52,7 @@
     </div>
   </form>
 </div>
-
-
-
-<div class="modal fade" id="topup" role="dialog">
-    <div class="modal-dialog">     
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Topup Credit</h4>
-        </div>
-        <div class="modal-body">
-          <form id="checkout" method="post" action="/credits/checkout">
-          <div id="payment-form">
-            <div class="field">
-              <label for="user_creditcredit">Credit Purchase</label> <br>
-              <input type= "number" name="user_credit[credits]"> 
-            </div>        
-          </div>
-          <div class="modal-footer">
-            <input type="submit" class= "btn btn-info" value="Pay">
-
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>           
-          </div>
-          </form>
-        </div>       
-      </div>
-    </div>
-  </div>
-  <script>
+<script>
 var clientToken = "<%= @braintree_token%>";
 
 braintree.setup(clientToken, "dropin", {
