@@ -11,25 +11,27 @@
       </ul>
     </div>
   <% end %>
+  <div class="row">
+    <div class="input-field col s12">
+      <%= f.label :name, class: "active" %>
+      <%= f.text_field :name, class: "validate" %>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :name, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
-      <%= f.text_field :name, class: "form-control" %>
+    <div class="input-field col s12">
+      <%= f.label :desc, class: "active" %>
+      <%= f.text_field :desc, class: "validate" %>
+    </div>
+
+    <div class="input-field col s12">
+      <p class="range-field">
+        <input type="range" name='price' id="test5" min="0" max="100" />
+      </p>
+      <div id="html5"></div>
+      <input type="number" class="col s4 number-input" name="lower" min="500" max="2500" step="1" id="lower">
+      
     </div>
   </div>
-  <div class="form-group">
-    <%= f.label :desc, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
-      <%= f.text_field :desc, class: "form-control" %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :price, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
-      <%= f.text_field :price, class: "form-control" %>
-    </div>
-  </div>
+
   <div class="form-group">
     <%= f.label :bedroom, class: "col-sm-2 control-label fa-bed fa" %>
     <div class="col-sm-10">
