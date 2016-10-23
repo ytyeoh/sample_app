@@ -11,87 +11,86 @@
       </ul>
     </div>
   <% end %>
+  <div class="row">
+    <div class="input-field col s12">
+      <%= f.label :name, class: "active" %>
+      <%= f.text_field :name, class: "validate" %>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :name, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
-      <%= f.text_field :name, class: "form-control" %>
+    <div class="input-field col s12">
+      <%= f.label :desc, class: "active" %>
+      <%= f.text_field :desc, class: "validate" %>
     </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :desc, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
-      <%= f.text_field :desc, class: "form-control" %>
+
+    <div class="input-field col s12">
+      <%= f.label :price %>
+      <div id="listing"></div>
+      <input type="number" class="col s4 number-input" name="price" id="price">
     </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :price, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
-      <%= f.text_field :price, class: "form-control" %>
+
+    <div class="input-field col s12">
+      <%= f.label :bedroom, class: "active" %>
+      <%= f.text_field :bedroom, class: "validate" %>
     </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :bedroom, class: "col-sm-2 control-label fa-bed fa" %>
-    <div class="col-sm-10">
-      <%= f.text_field :bedroom, class: "form-control" %>
+
+    <div class="input-field col s12">
+      <%= f.label :bathroom, class: "active" %>
+      <%= f.text_field :bathroom, class: "validate" %>
     </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :bathroom, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
-      <%= f.text_field :bathroom, class: "form-control" %>
+
+    <div class="input-field col s12">
+      <%= f.label :car_park, class: "active" %>
+      <%= f.text_field :parking, class: "validate" %>
     </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :car_park, class: "col-sm-2 control-label fa fa-car" %>
-    <div class="col-sm-10">
-      <%= f.text_field :parking, class: "form-control" %>
+
+    <div class="input-field col s12">
+      <%= f.label :area, class: "active" %>
+      <%= f.text_field :area, class: "validate" %>
     </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :area, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
-      <%= f.text_field :area, class: "form-control" %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :frunished, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
+    
+    <div class="input-field col s12">
+      <%= f.label :frunished, class: "active" %>
       <%= select_tag :frunished, options_for_select([['Fully', 1], ['Partialy', 2], ['Basic', 3]], selected: :option ), class: "form-control" %>
     </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :property, class: "col-sm-2 control-label fa fa-home" %>
-    <div class="col-sm-10">
+
+    <div class="input-field col s12">
+      <%= f.label :property, class: "active" %>
       <%= select_tag :property, options_for_select([['Landed', 1], ['High Rise', 2], ['Other', 3]], selected: :option ), class: "form-control" %>
     </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :image, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
-      <%= f.file_field :image, class: "form-control" %>
+    
+    <div class="input-field col s12">
+      <p>
+        <%= f.check_box :imove_in %>
+        <label for="listing_imove_in">Instant Move In</label>
+      </p>
     </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :imove_in, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
-      <%= f.check_box :imove_in, class: "form-control" %>
+      
+    
+    <div class="input-field col s12">
+      <div class="file-field input-field">
+        <div class="btn">
+          <span>File</span>
+          <%= f.file_field :image %>
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text">
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :address, class: "col-sm-2 control-label" %>
-    <%= f.hidden_field :latitude, id: "latitude" %>
-    <%= f.hidden_field :longitude, id: "longitude" %>
-    <%= hidden_field_tag 'city', request.location.city %>
-    <div class="col-sm-10">
-      <%= f.text_field :address, class: "form-control", id: "special" %>
+
+    <div class="input-field col s12">
+      <label class="active" for="special">address</label>
+      <%= f.hidden_field :latitude, id: "latitude" %>
+      <%= f.hidden_field :longitude, id: "longitude" %>
+      <%= hidden_field_tag 'city', request.location.city %>
+      <%= f.text_field :address, class: "validate", id: "special", placeholder: "#{request.location.city}"%>
     </div>
+  <div class="col s12">
     <div style='width: 90%;'>
     <div id="map" style='width: 90%; height: 400px;'></div>
     </div>
-
   </div>
-  <div class="form-group">
+  <div class="col s12">
     <div class="col-sm-offset-2 col-sm-10">
       <% if current_user.confirmed? %>
         <%= f.submit class: "btn btn-primary" %>
@@ -101,3 +100,24 @@
     </div>
   </div>
 <% end %>
+<script>
+  var listingSlider = document.getElementById('listing');
+
+  noUiSlider.create(listingSlider, {
+    start: [ 600 ],
+    range: {
+      'min': 500,
+      'max': 2500
+    },
+    margin: 50,
+    step: 50
+  });
+
+  var price = document.getElementById('price');
+
+  listingSlider.noUiSlider.on('update', function( values, handle ) {
+
+    var value = values[handle];
+      price.value = Math.round(value);
+  });
+</script>

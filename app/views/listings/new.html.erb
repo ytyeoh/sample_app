@@ -12,19 +12,19 @@
 <%= render 'form' %>
 <script type="text/javascript">
 $("#special").geocomplete({
-    map: "#map",
-    mapOptions: {
-      zoom: 10,
-      scrollwheel: true
-    },
-    location: "<%= current_user.stage %>",
-    markerOptions: {
-      draggable: true
-    },
-    details: "#special"
-  });
+  map: "#map",
+  mapOptions: {
+    zoom: 10,
+    scrollwheel: true
+  },
+  location: "<%= current_user.stage %>",
+  markerOptions: {
+    draggable: true
+  },
+  details: "#special"
+});
 $("#special").bind("geocode:dragged", function(event, latLng){
-          $("#latitude").val(latLng.lat());
-          $("#longitude").val(latLng.lng());
-        });
+  $("#latitude").val(latLng.lat());
+  $("#longitude").val(latLng.lng());
+});
 </script>
