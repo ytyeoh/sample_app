@@ -53,15 +53,14 @@
   </div>
   <div class="input-field col s12">
     <select>
-      <option value="#{request.location}" disabled selected><%= request.location %></option>
+      <option value="#{request.location}" disabled selected><%= request.location.city %></option>
       <option value="1">Option 1</option>
       <option value="2">Option 2</option>
       <option value="3">Option 3</option>
     </select>
     <%= f.label :stage %>
   </div>
-  <%= request.location.region_name %>
-  <%= request.location.metrocode %>
+  <%= request.location.country %>
   <%= request.location.city %>
   <div class="form-group">
     <%= f.label :stage, class: "col-sm-2 control-label" %>
