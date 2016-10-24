@@ -52,12 +52,7 @@
     </div>
   </div>
   <div class="input-field col s12">
-    <select>
-      <option value="#{request.location}" disabled selected><%= request.location.state %></option>
-      <option value="1">Option 1</option>
-      <option value="2">Option 2</option>
-      <option value="3">Option 3</option>
-    </select>
+    <%= select_tag :stage, options_for_select(["Penang", "Selangor", "Kuala Lumpur", "Johor", "Perak", "Sabah", "Sarawak", "Melaka", "Pahang", "Negeri Sembilan", "Perlis", "Kelantan", "Terengganu", "Kedah"], "#{request.location}") %>
     <%= f.label :stage %>
   </div>
   <div class="form-group">
