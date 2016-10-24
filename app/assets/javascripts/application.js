@@ -34,40 +34,6 @@ $(document).ready(function(){
   });
   Materialize.updateTextFields();
   $('select').material_select();
-  var html5Slider = document.getElementById('html5');
-
-  noUiSlider.create(html5Slider, {
-    start: [ 600, 900 ],
-    connect: true,
-    range: {
-      'min': 500,
-      'max': 2500
-    },
-    margin: 50,
-    step: 50
-  });
-
-  var gte = document.getElementById('higher');
-  var lte= document.getElementById('lower');
-
-  html5Slider.noUiSlider.on('update', function( values, handle ) {
-
-    var value = values[handle];
-
-    if ( handle ) {
-      gte.value = Math.round(value);
-    } else {
-      lte.value = Math.round(value);
-    }
-  });
-
-  lte.addEventListener('change', function(){
-    html5Slider.noUiSlider.set([this.value, null]);
-  });
-
-  gte.addEventListener('change', function(){
-    html5Slider.noUiSlider.set([null, this.value]);
-  });
 });
 
 
