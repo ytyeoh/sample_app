@@ -11,7 +11,7 @@
       </ul>
     </div>
   <% end %>
-  <div class="col l4 user">
+  <div class="col s12 l4 user">
     <% unless current_user.image.url.empty? %>
       <%= image_tag current_user.image.url, id: 'img_prev', class:'circle ' %>
     <% else %>
@@ -27,26 +27,26 @@
     </div>
   </div>
 
-  <div class="col l8">
+  <div class="col s12 l8">
     <div class="row">
-      <div class="input-field col s8">
+      <div class="input-field col s12 l8">
         <%= f.label :name, class: "active" %>
         <%= f.text_field :name, class: "validate" %>
       </div>
-      <div class="input-field col s8">
+      <div class="input-field col s12 l8">
         <%= f.label :email, class: "active" %>
         <%= f.text_field :email, class: "validate" %>
       </div>
       
-      <div class="input-field col s8">
+      <div class="input-field col s12 l8">
         <%= f.label :contact, class: "active" %>
         <%= f.text_field :contact, class: "validate" %>
       </div>
-      <div class="input-field col s8">
+      <div class="input-field col s12 l8">
         <%= f.label :identity_card, class: "active" %>
         <%= f.text_field :identity_card, class: "validate" %>
       </div>
-      <div class="input-field col s8">
+      <div class="input-field col s12 l8">
         <%= f.label :stage, class: "active" %>
         <%= f.text_field :stage, class: "validate" %>
       </div>
