@@ -68,6 +68,8 @@ GEM
       railties (>= 4.1.0, < 5.1)
       responders
       warden (~> 1.2.3)
+    dropzonejs-rails (0.7.3)
+      rails (> 3.1)
     elasticsearch (1.0.18)
       elasticsearch-api (= 1.0.18)
       elasticsearch-transport (= 1.0.18)
@@ -226,6 +228,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
   devise
+  dropzonejs-rails
   figaro
   geocoder
   geocomplete_rails
