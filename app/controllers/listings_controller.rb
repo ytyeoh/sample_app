@@ -45,7 +45,6 @@ class ListingsController < ApplicationController
     @listing = Listing.new(listing_params)
     @listing.user_id = current_user.id
     @listing.published_at = DateTime.now
-    byebug
     respond_to do |format|
       if @listing.save
         @listing.search_tags << @listing.city << @listing.state << @listing.postal_code << @listing.country

@@ -4,8 +4,14 @@
   maxFilesize: 2, // MB
   previewsContainer: "#previews",
   addRemoveLinks: true,
-  // autoProcessQueue: false,
+  autoProcessQueue: false,
+  uploadMultiple: false,
   clickable: "#clickzone",
+  maxFiles: 1,
+    maxfilesexceeded: function(file) {
+        this.removeAllFiles();
+        this.addFile(file);
+    },
   accept: function(file, done) {
     if (file.name == "justinbieber.jpg") {
       done("Naha, you don't.");
