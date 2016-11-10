@@ -7,16 +7,14 @@
   autoProcessQueue: false,
   uploadMultiple: false,
   clickable: "#clickzone",
+  dictRemoveFile: "Remove",
   maxFiles: 1,
     maxfilesexceeded: function(file) {
         this.removeAllFiles();
         this.addFile(file);
     },
   accept: function(file, done) {
-    if (file.name == "justinbieber.jpg") {
-      done("Naha, you don't.");
-    }
-    else { done(); }
+  
   }
 };
 </script>
