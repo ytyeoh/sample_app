@@ -1,0 +1,20 @@
+<script>
+  Dropzone.options.listingForm = {
+  paramName: "listing[image]", // The name that will be used to transfer the file
+  maxFilesize: 2, // MB
+  previewsContainer: "#previews",
+  addRemoveLinks: true,
+  autoProcessQueue: false,
+  uploadMultiple: false,
+  clickable: "#clickzone",
+  dictRemoveFile: "Remove",
+  maxFiles: 1,
+    maxfilesexceeded: function(file) {
+        this.removeAllFiles();
+        this.addFile(file);
+    },
+  accept: function(file, done) {
+  
+  }
+};
+</script>

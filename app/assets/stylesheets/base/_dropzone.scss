@@ -1,0 +1,49 @@
+.dz-message,
+.dz-error-message,
+.dz-progress,
+.dz-success-mark,
+.dz-error-mark {
+  display: none !important;
+}
+
+.dz-filename span {
+  
+}
+
+.dz-details {
+  margin-top: 6px;
+  line-height: 1em;
+  font-size: 13px;
+}
+
+.dz-remove {
+  font-size: 13px;
+}
+
+.dropzone-previews {
+  margin: 0 -5px;
+
+  img {
+    height: 50px;
+  }
+}
+
+.dropzone-btn {
+  border: 2px dashed black;
+  text-align: center;
+  padding: 20px;
+  cursor: pointer;
+  margin-bottom: 10px;
+
+  .material-icons {
+    font-size: 40px;
+    color: black;
+  }
+}
+
+.dz-preview {
+  position: relative;
+  display: inline-block;
+  width: 120px;
+  margin: 0.5em;
+}
