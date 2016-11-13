@@ -1,4 +1,4 @@
-  Rails.application.routes.draw do
+Rails.application.routes.draw do
 
   resources :favorite_listings, only: [:create, :destroy]
   resources :user_credits, only: [:new, :index]
