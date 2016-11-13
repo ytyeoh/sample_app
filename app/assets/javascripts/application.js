@@ -17,7 +17,6 @@
 //= require materialize/extras/nouislider
 //= require underscore
 //= require gmaps/google
-//= require dropzone
 //= require application/global_event
 //= require geocomplete
 //= require typeahead

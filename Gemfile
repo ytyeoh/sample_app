@@ -33,7 +33,6 @@ gem "paperclip", '~> 4.3'
 gem 'paperclip-compression'
 gem 'searchkick'
 gem 'material_icons'
-gem 'dropzonejs-rails'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rails_12factor', group: :production
