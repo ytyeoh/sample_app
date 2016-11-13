@@ -3,7 +3,6 @@
 @import "base/dimension";
 @import "base/typography";
 @import "typeahead";
-@import "base/dropzone";
 
 //home
 @import "home/navbar";
@@ -13,7 +12,6 @@
 
 //listing
 @import "listing/index";
-@import "listing/new";
 
 //user
 @import "user/edit"
