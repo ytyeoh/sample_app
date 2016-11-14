@@ -8,6 +8,11 @@ $(document).ready(function(){
     addRemoveLinks: true,
     autoProcessQueue: false,
     clickable: "#clickzone",
+    maxFiles:1,
+    maxfilesexceeded: function(file) {
+        this.removeAllFiles();
+        this.addFile(file);
+    },
     accept: function(file, done) {
       if (file.name == "justinbieber.jpg") {
         done("Naha, you don't.");
@@ -18,31 +23,13 @@ $(document).ready(function(){
   $("form").on("submit", function (event) {
     event.preventDefault();
     event.stopPropagation();
-    myDropzone.processQueue();
     myDropzone.processQueue(); // Tell Dropzone to process all queued files.
   });
+  var mockFile = { name: "Existing Image", size: <%= @listing.image.size %> };
+  myDropzone.emit("addedfile", mockFile);
+  myDropzone.createThumbnailFromUrl(mockFile, "<%= @listing.image.url %>");
   myDropzone.on("queuecomplete", function(file) {
     window.location.href = "/listings/owner";
   });
-  // Create the mock file:
-  var mockFile = { name: "image", size: 12345 };
-
-  // Call the default addedfile event handler
-  myDropzone.emit("addedfile", mockFile);
-
-  // And optionally show the thumbnail of the file:
-  myDropzone.emit("thumbnail", mockFile, "#{@listing.image.url}");
-  // Or if the file on your server is not yet in the right
-  // size, you can let Dropzone download and resize it
-  // callback and crossOrigin are optional.
-  myDropzone.createThumbnailFromUrl( imageUrl, callback, crossOrigin);
-
-  // Make sure that there is no progress bar, etc...
-  myDropzone.emit("complete", mockFile);
-
-  // If you use the maxFiles option, make sure you adjust it to the
-  // correct amount:
-  var existingFileCount = 1; // The number of files already uploaded
-  myDropzone.options.maxFiles = myDropzone.options.maxFiles - existingFileCount;
 })
 </script>
