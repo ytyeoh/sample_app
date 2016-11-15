@@ -17,6 +17,7 @@
     </div>
   </div>
   <div class="col s12">
+    <%= paginate @listings %>
     <%= render partial: 'item', collection: @listings, as: :listing %> 
   </div>
 </div>
