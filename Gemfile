@@ -35,6 +35,7 @@ gem 'searchkick'
 gem 'material_icons'
 gem 'dropzonejs-rails'
 gem 'kaminari'
+# gem 'rack-mini-profiler', require: false
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rails_12factor', group: :production

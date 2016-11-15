@@ -89,7 +89,7 @@ class ListingsController < ApplicationController
   end
 
   def owner
-    @listings = Listing.where(user_id: current_user.id).page params[:page]
+    @listings = Listing.where(user_id: current_user.id).limit(5).page params[:page]
     @hash = Gmaps4rails.build_markers(@listings) do |listing, marker|
       marker.lat listing.latitude
       marker.lng listing.longitude
