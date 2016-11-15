@@ -49,6 +49,7 @@ class ListingsController < ApplicationController
       if @listing.save
         @listing.search_tags << @listing.city << @listing.state << @listing.postal_code << @listing.country
         @listing.save
+        flash[:notice] = "new listing"
         format.html { redirect_to @listing, notice: 'Listing was successfully created.' }
         format.json { render :show, status: :created, location: @listing }
       else
@@ -63,8 +64,9 @@ class ListingsController < ApplicationController
   def update
     respond_to do |format|
       if @listing.update(listing_params)
+        flash[:notice] = "update done"
         format.html { redirect_to @listing, notice: 'Listing was successfully updated.' }
-        format.json { render :show, status: :ok, location: @listing }
+        format.json { render :js => "window.location='/listings/#{@listing.id}'" }
       else
         format.html { render :edit }
         format.json { render json: @listing.errors, status: :unprocessable_entity }
@@ -84,6 +86,14 @@ class ListingsController < ApplicationController
 
   def autocomplete
     render json: Listing.search(params[:query], autocomplete: true, limit: 10).map(&:city)
+  end
+
+  def owner
+    @listings = Listing.where(user_id: current_user.id)
+    @hash = Gmaps4rails.build_markers(@listings) do |listing, marker|
+      marker.lat listing.latitude
+      marker.lng listing.longitude
+    end
   end
 
   private

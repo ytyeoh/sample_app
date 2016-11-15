@@ -1,4 +1,5 @@
-<%= form_for(@listing, html: { class: "form-horizontal", role: "form" }) do |f| %>
+<div class="row listing-new">
+<%= form_for(@listing, html: { class: "form-horizontal dropzone", role: "form", id:"listing_form" }) do |f| %>
   <% if @listing.errors.any? %>
     <div class="alert alert-danger alert-dismissable" role="alert">
       <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
@@ -11,7 +12,8 @@
       </ul>
     </div>
   <% end %>
-  <div class="row">
+
+    <h5>Property</h5>
     <div class="input-field col s12">
       <%= f.label :name, class: "active" %>
       <%= f.text_field :name, class: "validate" %>
@@ -21,13 +23,36 @@
       <%= f.label :desc, class: "active" %>
       <%= f.text_field :desc, class: "validate" %>
     </div>
-
+    <h5>Price</h5>
     <div class="input-field col s12">
       <%= f.label :price %>
       <div id="listing"></div>
-      <input type="number" class="col s4 number-input" name="price" id="price">
+      <input type="number" class="col s12 number-input" name="price" id="price">
     </div>
 
+
+      <p>
+        <%= f.check_box :imove_in %>
+        <label for="listing_imove_in">Instant Move In</label>
+      </p>
+
+    
+    <h5>Location</h5>
+
+    <div class="input-field col s12">
+      <label class="active" for="special">address</label>
+      <%= f.hidden_field :latitude, id: "latitude" %>
+      <%= f.hidden_field :longitude, id: "longitude" %>
+      <%= hidden_field_tag 'city', request.location.city %>
+      <%= f.text_field :address, class: "validate", id: "special", placeholder: "#{request.location.city}"%>
+    </div>
+    <div class="col s12">
+      <div style='width: 90%;'>
+      <div id="map" style='width: 90%; height: 400px;'></div>
+      </div>
+    </div>
+
+    <h5>Information</h5>
     <div class="input-field col s12">
       <%= f.label :bedroom, class: "active" %>
       <%= f.text_field :bedroom, class: "validate" %>
@@ -49,47 +74,26 @@
     </div>
     
     <div class="input-field col s12">
-      <%= f.label :frunished, class: "active" %>
-      <%= select_tag :frunished, options_for_select([['Fully', 1], ['Partialy', 2], ['Basic', 3]], selected: :option ), class: "form-control" %>
+      <%= f.label :furnished, class: "active" %>
+      <%= f.select(:furnished, Listing.furnisheds.keys) %>
     </div>
 
     <div class="input-field col s12">
       <%= f.label :property, class: "active" %>
-      <%= select_tag :property, options_for_select([['Landed', 1], ['High Rise', 2], ['Other', 3]], selected: :option ), class: "form-control" %>
-    </div>
-    
-    <div class="input-field col s12">
-      <p>
-        <%= f.check_box :imove_in %>
-        <label for="listing_imove_in">Instant Move In</label>
-      </p>
-    </div>
-      
-    
-    <div class="input-field col s12">
-      <div class="file-field input-field">
-        <div class="btn">
-          <span>File</span>
-          <%= f.file_field :image %>
-        </div>
-        <div class="file-path-wrapper">
-          <input class="file-path validate" type="text">
-        </div>
-      </div>
-    </div>
+      <%= f.select(:property, Listing.properties.keys)  %>
+    </div>  
 
-    <div class="input-field col s12">
-      <label class="active" for="special">address</label>
-      <%= f.hidden_field :latitude, id: "latitude" %>
-      <%= f.hidden_field :longitude, id: "longitude" %>
-      <%= hidden_field_tag 'city', request.location.city %>
-      <%= f.text_field :address, class: "validate", id: "special", placeholder: "#{request.location.city}"%>
+    
+
+
+    <div class="col s12">
+      <div class="card-panel waves-effect waves-block waves-green" id="clickzone">
+          <span class="">Drop file here or click here
+          </span>
+        </div>
+      <div classs="dropzone-previews" id ="previews"></div>
     </div>
-  <div class="col s12">
-    <div style='width: 90%;'>
-    <div id="map" style='width: 90%; height: 400px;'></div>
-    </div>
-  </div>
+    
   <div class="col s12">
     <div class="col-sm-offset-2 col-sm-10">
       <% if current_user.confirmed? %>
@@ -98,8 +102,9 @@
         <%= link_to "Resend confirm email", new_confirmation_path(current_user), class: "btn btn-primary" %>
       <% end %>
     </div>
-  </div>
+  
 <% end %>
+</div>
 <script>
   var listingSlider = document.getElementById('listing');
 
@@ -121,3 +126,5 @@
       price.value = Math.round(value);
   });
 </script>
+
+<%= render 'drop' %>
