@@ -9,25 +9,37 @@ $(document).ready(function(){
     autoProcessQueue: false,
     clickable: "#clickzone",
     maxFiles:1,
+    init: function(){
+      if ("<%= @listing.image.url %>" == "/images/original/missing.png"){
+      }
+      else {
+        var mockFile = { name: "old file", size: 12, type: 'image/jpeg' };
+        this.options.addedfile.call(this, mockFile);
+        this.options.thumbnail.call(this, mockFile, "<%= @listing.image.url(:thumb) %>");
+        this.on("addedfile", function(file) {
+          if (mockFile) {
+            this.removeFile(mockFile);
+          }
+          mockFile = file;
+        });
+      };
+    },
     maxfilesexceeded: function(file) {
-        this.removeAllFiles();
-        this.addFile(file);
+      this.removeAllFiles(file);
+      this.addFile(file);
     },
     accept: function(file, done) {
       if (file.name == "justinbieber.jpg") {
         done("Naha, you don't.");
       }
       else { done(); }
-    }
+    },
   });
   $("form").on("submit", function (event) {
     event.preventDefault();
     event.stopPropagation();
     myDropzone.processQueue(); // Tell Dropzone to process all queued files.
   });
-  var mockFile = { name: "Existing Image", size: <%= @listing.image.size %> };
-  myDropzone.emit("addedfile", mockFile);
-  myDropzone.createThumbnailFromUrl(mockFile, "<%= @listing.image.url %>");
   myDropzone.on("queuecomplete", function(file) {
     window.location.href = "/listings/owner";
   });
