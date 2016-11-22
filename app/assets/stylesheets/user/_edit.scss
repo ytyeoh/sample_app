@@ -17,7 +17,15 @@
     width: 200px;
     height: 200px;
   }
+  .file-field{
+    .btn{
+      float:none;
+    }
+  }
 }
-.bottom{
+@media only screen and (min-width: 600px){
+  .bottom{
     text-align: end;
   }
+}
+
