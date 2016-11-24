@@ -6,9 +6,10 @@ class ListingsController < ApplicationController
   # GET /listings.json
   def index
     if params[:query].present?
-      @listings = Listing.search  fields: [:search_tags], where: {imove_in: params[:imove_in], price: {gte: params[:lower], lte: params[:higher]}}, order: {published_at: :desc}
+      @listingss = Listing.search params[:query], fields: [:search_tags], where: {imove_in: params[:imove_in], price: {gte: params[:lower], lte: params[:higher]}}, order: {published_at: :desc,}
+      @listings = Kaminari.paginate_array(@listingss).page params[:listing]
     else
-      @listings = Listing.all.order("published_at DESC")#.page params[:page]
+      @listings = Listing.all.order("published_at DESC").page params[:listing]
     end
     @hash = Gmaps4rails.build_markers(@listings) do |listing, marker|
       marker.lat listing.latitude
@@ -89,7 +90,7 @@ class ListingsController < ApplicationController
   end
 
   def owner
-    @listings = Listing.where(user_id: current_user.id).limit(5).page params[:page]
+    @listings = Listing.where(user_id: current_user.id).order("published_at DESC").page params[:page]
     @hash = Gmaps4rails.build_markers(@listings) do |listing, marker|
       marker.lat listing.latitude
       marker.lng listing.longitude

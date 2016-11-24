@@ -1,6 +1,3 @@
-<!-- Geocomplete plugin -->
-<script src="//cdn.jsdelivr.net/jquery.geocomplete/1.6.4/jquery.geocomplete.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
 <div class="page-header">
   <%= link_to listings_path, class: 'btn btn-default', 'data-no-turbolink' => true do %>
     <span class="glyphicon glyphicon-list-alt"></span>
@@ -14,6 +11,8 @@
 </div>
 
 <%= render 'form' %>
+
+<%= render 'geo_complete' %>
 <script type="text/javascript">
 $("#special").geocomplete({
     map: "#map",
@@ -28,7 +27,7 @@ $("#special").geocomplete({
     details: "form"
   });
 $("#special").bind("geocode:dragged", function(event, latLng){
-          $("#latitude").val(latLng.lat());
-          $("#longitude").val(latLng.lng());
-        });
+  $("#latitude").val(latLng.lat());
+  $("#longitude").val(latLng.lng());
+});
 </script>

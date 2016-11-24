@@ -27,7 +27,7 @@
     <div class="input-field col s12">
       <%= f.label :price %>
       <div id="listing"></div>
-      <input type="number" class="col s12 number-input" name="price" id="price">
+      <%= f.number_field :price, class: "validate col s12 number-input", value: 600 %>
     </div>
 
 
@@ -107,9 +107,10 @@
 </div>
 <script>
   var listingSlider = document.getElementById('listing');
+  var value = document.getElementById('listing_price').value;
 
   noUiSlider.create(listingSlider, {
-    start: [ 600 ],
+    start: [ value ],
     range: {
       'min': 500,
       'max': 2500
@@ -118,7 +119,7 @@
     step: 50
   });
 
-  var price = document.getElementById('price');
+  var price = document.getElementById('listing_price');
 
   listingSlider.noUiSlider.on('update', function( values, handle ) {
 

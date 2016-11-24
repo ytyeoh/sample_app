@@ -9,6 +9,7 @@ $(document).ready(function(){
     autoProcessQueue: false,
     clickable: "#clickzone",
     maxFiles:1,
+    dictDefaultMessage:'',
     init: function(){
       if ("<%= @listing.image.url %>" == "/images/original/missing.png"){
       }
@@ -36,9 +37,16 @@ $(document).ready(function(){
     },
   });
   $("form").on("submit", function (event) {
-    event.preventDefault();
-    event.stopPropagation();
-    myDropzone.processQueue(); // Tell Dropzone to process all queued files.
+    if (myDropzone.getQueuedFiles().length > 0) {
+      event.preventDefault();
+      event.stopPropagation();
+      myDropzone.processQueue();
+    }
+    else {
+      // Upload anyway without files
+      dropzone.uploadFiles([ ]);
+    }
+     // Tell Dropzone to process all queued files.
   });
   myDropzone.on("queuecomplete", function(file) {
     window.location.href = "/listings/owner";
