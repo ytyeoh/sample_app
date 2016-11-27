@@ -8,6 +8,9 @@
     Show <%=@listing.address%>
   <% end %>
   <h1>Editing listing</h1>
+  <% if @lisitng.nil? %>
+    <span class='red-text'><%= "Warning: Please do not change city of address, it may make user hard/unable to find it" %></span>
+  <% end %>
 </div>
 
 <%= render 'form' %>
