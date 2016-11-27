@@ -6,10 +6,10 @@ class ListingsController < ApplicationController
   # GET /listings.json
   def index
     if params[:query].present?
-      @listingss = Listing.search params[:query], fields: [:search_tags], where: {imove_in: params[:imove_in], price: {gte: params[:lower], lte: params[:higher]}}, order: {published_at: :desc,}
-      @listings = Kaminari.paginate_array(@listingss).page params[:listing]
+      @listingss = Listing.search params[:query], fields: [:city], where: {imove_in: params[:imove_in], price: {gte: params[:lower], lte: params[:higher]}}, order: {published_at: :desc,}
+      @listings = Kaminari.paginate_array(@listingss).page(params[:listing]).per(10)
     else
-      @listings = Listing.all.order("published_at DESC").page params[:listing]
+      @listings = Listing.all.order("published_at DESC").page(params[:listing]).per(10)
     end
     @hash = Gmaps4rails.build_markers(@listings) do |listing, marker|
       marker.lat listing.latitude
@@ -38,6 +38,7 @@ class ListingsController < ApplicationController
 
   # GET /listings/1/edit
   def edit
+    @geokey = ENV['GEOAPI']
   end
 
   # POST /listings
@@ -46,8 +47,10 @@ class ListingsController < ApplicationController
     @listing = Listing.new(listing_params)
     @listing.user_id = current_user.id
     @listing.published_at = DateTime.now
+    byebug
     respond_to do |format|
       if @listing.save
+        byebug
         @listing.search_tags << @listing.city << @listing.state << @listing.postal_code << @listing.country
         @listing.save
         flash[:notice] = "new listing"
@@ -65,6 +68,9 @@ class ListingsController < ApplicationController
   def update
     respond_to do |format|
       if @listing.update(listing_params)
+        # @listing.search_tags = []
+        # @listing.search_tags << @listing.city << @listing.state << @listing.postal_code << @listing.country
+        # @listing.save
         flash[:notice] = "update done"
         format.html { redirect_to @listing, notice: 'Listing was successfully updated.' }
         format.json { render :js => "window.location='/listings/#{@listing.id}'" }
@@ -90,7 +96,7 @@ class ListingsController < ApplicationController
   end
 
   def owner
-    @listings = Listing.where(user_id: current_user.id).order("published_at DESC").page params[:page]
+    @listings = Listing.where(user_id: current_user.id).order("published_at DESC").page params[:listing]
     @hash = Gmaps4rails.build_markers(@listings) do |listing, marker|
       marker.lat listing.latitude
       marker.lng listing.longitude

@@ -18,7 +18,7 @@
   </div>
   <div class="col s12" >
     <div id="listing-num">
-      <%= paginate @listings.page(params[:listing]), :remote => true, param_name: 'listing' %>
+      <%= paginate @listings.page(params[:listing]), :remote => true, param_name: 'listing', :window => 1 %>
     </div>
     <div id="listing-item">
       <%= render partial: 'item', collection: @listings.page(params[:listing]), as: :listing %>
