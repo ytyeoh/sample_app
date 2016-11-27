@@ -6,7 +6,7 @@ class ListingsController < ApplicationController
   # GET /listings.json
   def index
     if params[:query].present?
-      @listingss = Listing.search params[:query], fields: [:city], where: {imove_in: params[:imove_in], price: {gte: params[:lower], lte: params[:higher]}}, order: {published_at: :desc,}
+      @listingss = Listing.search params[:query], fields: [:search_tags], where: {imove_in: params[:imove_in], price: {gte: params[:lower], lte: params[:higher]}}, order: {published_at: :desc,}
       @listings = Kaminari.paginate_array(@listingss).page(params[:listing]).per(10)
     else
       @listings = Listing.all.order("published_at DESC").page(params[:listing]).per(10)
@@ -50,7 +50,6 @@ class ListingsController < ApplicationController
     byebug
     respond_to do |format|
       if @listing.save
-        byebug
         @listing.search_tags << @listing.city << @listing.state << @listing.postal_code << @listing.country
         @listing.save
         flash[:notice] = "new listing"
@@ -68,9 +67,6 @@ class ListingsController < ApplicationController
   def update
     respond_to do |format|
       if @listing.update(listing_params)
-        # @listing.search_tags = []
-        # @listing.search_tags << @listing.city << @listing.state << @listing.postal_code << @listing.country
-        # @listing.save
         flash[:notice] = "update done"
         format.html { redirect_to @listing, notice: 'Listing was successfully updated.' }
         format.json { render :js => "window.location='/listings/#{@listing.id}'" }
