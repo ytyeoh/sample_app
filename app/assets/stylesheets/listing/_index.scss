@@ -61,3 +61,25 @@
     padding-top: 35px; 
   }
 }
+
+#listing-num{
+  nav{
+    background-color: inherit;
+    box-shadow: none;
+    color: black;
+  }
+  nav a{
+    color: inherit;
+  }
+  nav span{
+    display: inline-block;
+    border-radius: 2px;
+    text-align: center;
+    vertical-align: top;
+    padding: 0 1.5rem;
+    /*margin: 0 0.5rem;*/
+  }
+  .current{
+      background-color: $dark-green;
+    }
+}

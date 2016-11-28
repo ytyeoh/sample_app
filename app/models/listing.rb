@@ -2,6 +2,7 @@ class Listing < ActiveRecord::Base
 	belongs_to :user
 	has_many :favorite_listings
 	searchkick autocomplete: ['city']
+	paginates_per 10
 	# attr_accessible :address, :latitude, :longitude
 	geocoded_by :address
 	has_attached_file :image,
