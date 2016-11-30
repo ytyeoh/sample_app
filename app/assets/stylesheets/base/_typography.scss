@@ -33,12 +33,54 @@
   }
 }
 
-
-
-h2{
-  color: $dark-green;
-  font-size: 2rem;
+h1{ 
+  font-size: 1.429rem;
+  font-weight: 400;
+  color: #186b7d;
 }
+
+h2{ 
+  font-size: 1.429rem;
+  font-weight: 300;
+  color: #186b7d;
+}
+
+h3{
+  font-size:1.286rem;
+  font-weight: 400;
+  color: #29a369;
+}
+
+h4{
+  font-size:1.143rem;
+  font-weight: 300;
+  color: #186b7d;
+}
+
+h5{
+  font-size:1rem;
+  font-weight: 400;
+  color: #186b7d;
+}
+
+h6{
+  font-size: 0.8571rem;
+  font-weight: 400;
+  color: #31e1e3;
+}
+
+p{
+  font-size: 1rem;
+  font-weight: 300;
+  color: #959595;
+}
+
+a{
+  font-size: 0.8571rem;
+  font-weight: 300;
+  color: #29a369;
+}
+
 
 .f18{
   font-size: 18px;
