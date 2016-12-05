@@ -1,0 +1,39 @@
+<%= form_tag listings_path, method: :get do %>
+    <div class="input-field">
+      <div class="row ">
+        <div class="col s2 l2 padding-zero">
+          <%= button_tag(type: "submit", class: "waves-effect waves-light") do %>
+            <i class="material-icons md-24">search</i>
+          <% end %>
+        </div>
+        <div class="col s10 l4 padding-zero">
+          <%= text_field_tag :query, params[:query], class: 'city home-form', placeholder: "Where you want to rent?",  autocomplete: "off" %>
+        </div>
+        <div class="col s12 l6 padding-zero">
+          <a class='dropdown-button-listing waves-effect waves-light btn' href='#' data-activates='dropdown1'>
+            <div><span class='text-left'>Filter</span><span class='text-right'>▼</span></div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div id="dropdown1" class='row dropdown-content'>
+      <div class="input-field col s12">
+        <%= select_tag :imove_in, "<option value=false>Normal Move In</option><option value=true>Instant Move In</option>".html_safe, class: 'home-form'%>
+      </div>
+      <div class="input-field col s12">
+        Price Range:
+        <div id="html5"></div>
+        <input type="number" class="col s4 number-input" name="lower" min="500" max="2500" step="1" id="lower">
+        <div class="col s4"></div>
+        <input type="number" class="col s4 number-input" name="higher" min="500" max="2500" step="1" id="higher">
+      </div>
+    </div>
+    
+<% end %>
+<script>
+  $('.dropdown-button-listing').dropdown({
+    constrain_width: false,
+    hover:true
+    }
+  );
+</script>
