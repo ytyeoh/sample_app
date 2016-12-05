@@ -46,6 +46,12 @@
     left: 0!important;
     z-index: 1;
     will-change: width, height;
+
+    .s2{
+      height: 3rem;
+      padding: 1rem 0;
+      font-size: 1.3rem;
+    }
   }
 
   .twitter-typeahead .tt-query, .twitter-typeahead .tt-hint{
