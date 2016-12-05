@@ -1,3 +1,18 @@
+@media only screen and (min-width: 1200px){
+  .inline-block{
+    .dropdown-content {
+      top: 3rem!important;
+    }
+  }
+}
+@media only screen and (min-width: 0px) and (max-device-width: 1199px){
+  .inline-block{
+    .dropdown-content {
+      top: 6rem!important;
+    }
+  }
+}
+
 .inline-block{
   display: inline-block;
   font-size: 12px;
@@ -29,18 +44,9 @@
     position: absolute;
     white-space: nowrap;
     left: 0!important;
-    top: 6rem!important;
     z-index: 1;
     will-change: width, height;
   }
-
-  @media only screen and (min-width: 1200px){
-    .dropdonw-content {
-      top: 3rem!important;
-    }
-  }
-
-
 
   .twitter-typeahead .tt-query, .twitter-typeahead .tt-hint{
     border: none;
