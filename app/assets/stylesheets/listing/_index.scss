@@ -47,6 +47,11 @@
     z-index: 1;
     will-change: width, height;
 
+    .hli {
+      background-color: $dark-green;
+      color: white;
+    }
+
     .s2{
       height: 3rem;
       padding: 1rem 0;
@@ -78,6 +83,8 @@
     display: block;
     text-align: left;
 
+
+
     div{
       /*padding:10px;*/
       .text-left{
@@ -87,8 +94,7 @@
       .text-right{
         position: absolute;
         right: 1rem;
-      
-    }
+      }
     }
 
     

@@ -17,7 +17,17 @@
       </div>
     </div>
     <div id="dropdown1" class='row dropdown-content'>
-      <div class="input-field col s12">
+      <div class="input-field col s6">
+        <div class='move_in'>
+          <input name="group1" type="radio" id="test1" />
+          Normal move in
+        </div>
+      </div>
+      <div class="input-field col s6">
+        <div class='move_in'>
+          <input name="group1" type="radio" id="test2" />
+          Instat move in
+        </div>
         <%= select_tag :imove_in, "<option value=false>Normal Move In</option><option value=true>Instant Move In</option>".html_safe, class: 'home-form'%>
       </div>
       <div class="input-field col s12">
@@ -38,4 +48,17 @@
     hover:true
     }
   );
+  $('.move_in').click(function () {
+    $('.hli').toggleClass('hli');
+    $(this).toggleClass('hli');
+    var Id = $(this).find('input[type=radio]').attr('id');
+    document.getElementById(Id).click();
+  });
+  $(".dropdown-content").click(function(e){
+    e.stopPropagation();
+    console.log('123');
+  });
+  $('.dropdown-content').on('touchstart click', function (e) {
+    e.stopPropagation();
+});
 </script>
