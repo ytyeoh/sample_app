@@ -44,22 +44,32 @@
     position: absolute;
     white-space: nowrap;
     left: 0!important;
-    z-index: 1;
+    z-index: 2;
     will-change: width, height;
+
+    #html5{
+      margin: 1rem 0.5rem;
+    }
     
     .move_in{
       border: 1px solid grey;
       color: $light-green;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
     }
     .hli {
       background-color: $dark-green;
       color: white;
     }
 
-    .s2{
-      height: 3rem;
-      padding: 1rem 0;
-      font-size: 1.3rem;
+    .s5{
+      border: 1px solid $dark-grey;
+      margin: 20px 0;
+      color: $dark-grey;
+    }
+    input[type=number]{
+      margin: 0;
+      border: 0px;
     }
   }
 
