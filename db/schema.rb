@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(version: 20161115090800) do
     t.float    "latitude"
     t.float    "longitude"
     t.string   "address"
-    t.integer  "token",              default: 0
-    t.integer  "coin",               default: 0
+    t.integer  "token",              default: 0 #bump
+    t.integer  "coin",               default: 0 #highlight
     t.datetime "published_at"
     t.integer  "view",               default: 0
     t.string   "search_tags",        default: [],              array: true

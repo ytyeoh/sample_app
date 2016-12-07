@@ -1,0 +1,66 @@
+<%= form_tag listings_path, method: :get do %>
+    <div class="input-field">
+      <div class="row ">
+        <div class="col s2 l2 padding-zero">
+          <%= button_tag(type: "submit", class: "waves-effect waves-light") do %>
+            <i class="material-icons md-24">search</i>
+          <% end %>
+        </div>
+        <div class="col s10 l4 padding-zero">
+          <%= text_field_tag :query, params[:query], class: 'city home-form', placeholder: "Where you want to rent?",  autocomplete: "off" %>
+        </div>
+        <div class="col s12 l6 padding-zero">
+          <a class='dropdown-button-listing waves-effect waves-light btn' href='#' data-activates='dropdown1'>
+            <div><span class='text-left'>Filter</span><span class='text-right'>▼</span></div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div id="dropdown1" class='row dropdown-content'>
+      <div class="input-field col s6">
+        <div class='move_in'>
+           <%= radio_button_tag 'imove_in', false %>
+          Normal move in
+        </div>
+      </div>
+      <div class="input-field col s6">
+        <div class='move_in'>
+          <%= radio_button_tag 'imove_in', true %>
+          Instat move in
+        </div>
+        
+      </div>
+      <div class="input-field col s12 left-align dark-grey-text b500">
+        PRICE RANGE:
+        <div id="html5"></div>
+        <div class="col s5">RM
+          <input type="number" class="number-input" name="lower" min="500" max="2500" step="1" id="lower">
+        </div>
+        <div class="col s2"></div>
+        <div class="col s5">RM
+          <input type="number" class="number-input" name="higher" min="500" max="2500" step="1" id="higher">
+        </div>
+      </div>
+    </div>
+    
+<% end %>
+<script>
+  $('.dropdown-button-listing').dropdown({
+    constrain_width: false,
+    hover:true
+    }
+  );
+  $('.move_in').click(function () {
+    $('.hli').toggleClass('hli');
+    $(this).toggleClass('hli');
+    var Id = $(this).find('input[type=radio]').attr('id');
+    document.getElementById(Id).click();
+  });
+  $(".dropdown-content").click(function(e){
+    e.stopPropagation();
+    console.log('123');
+  });
+  $('.dropdown-content').on('touchstart click', function (e) {
+    e.stopPropagation();
+});
+</script>

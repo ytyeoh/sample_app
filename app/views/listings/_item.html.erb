@@ -1,4 +1,4 @@
-<div class="row listing">
+<div class="row listing <%= listing.coin >= 1 ? 'dark-green' : ' ' %>">
   <div class="col m3">
     <%= image_tag listing.image, class:'responsive-img' %>
   </div>
