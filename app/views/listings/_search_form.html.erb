@@ -19,16 +19,16 @@
     <div id="dropdown1" class='row dropdown-content'>
       <div class="input-field col s6">
         <div class='move_in'>
-          <input name="group1" type="radio" id="test1" />
+           <%= radio_button_tag 'imove_in', false %>
           Normal move in
         </div>
       </div>
       <div class="input-field col s6">
         <div class='move_in'>
-          <input name="group1" type="radio" id="test2" />
+          <%= radio_button_tag 'imove_in', true %>
           Instat move in
         </div>
-        <%= select_tag :imove_in, "<option value=false>Normal Move In</option><option value=true>Instant Move In</option>".html_safe, class: 'home-form'%>
+        
       </div>
       <div class="input-field col s12">
         Price Range:

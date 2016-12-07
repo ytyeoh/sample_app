@@ -46,7 +46,11 @@
     left: 0!important;
     z-index: 1;
     will-change: width, height;
-
+    
+    .move_in{
+      border: 1px solid grey;
+      color: $light-green;
+    }
     .hli {
       background-color: $dark-green;
       color: white;
@@ -169,18 +173,19 @@
     background-color: inherit;
     box-shadow: none;
     color: black;
+    text-align: right;
   }
   nav a{
-    color: inherit;
+    color: $light-green;
   }
   nav span{
     display: inline-block;
     border-radius: 2px;
     text-align: center;
     vertical-align: top;
-    padding: 0 1.5rem;
+    padding: 0 0.5rem;
   }
   .current{
-      background-color: $dark-green;
+      color: $primary-color;
     }
 }
