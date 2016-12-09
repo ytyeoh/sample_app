@@ -45,10 +45,16 @@ function readURL(input) {
     reader.onload = function (e) {
       $('#img_prev')
         .attr('src', e.target.result)
-        .removeClass('hidden')
-        .height(250);
+        .removeClass('hide')
+        .height(165)
+        .width(165);
+      $('.icon_img').addClass('hide');
+      $('.image')
+        .css('background-image', 'url("' + e.target.result + '")');
+            }
+
     };
 
     reader.readAsDataURL(input.files[0]);
-  }
+  
 }
