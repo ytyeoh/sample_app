@@ -5,6 +5,6 @@ class Picture < ActiveRecord::Base
         :thumb => "100x100#",
         :small  => "150x150>",
         :medium => "200x200" }
-  do_not_validate_attachment_file_type :image
+  validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/x
 
 end

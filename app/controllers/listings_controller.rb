@@ -51,9 +51,8 @@ class ListingsController < ApplicationController
       if @listing.save
         if params[:images]
           @uploaded_images = params[:images]
-          @uploaded_images.each { |image|
-            byebug
-            @listing.pictures.create(image: image)
+          @uploaded_images.each { |image, object|
+            @listing.pictures.create(image: object)
           }
         end
         @listing.search_tags << @listing.city << @listing.state << @listing.postal_code << @listing.country

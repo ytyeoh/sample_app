@@ -1,8 +1,8 @@
 <div class="row listing <%= listing.coin >= 1 ? 'dark-green' : ' ' %>">
   <div class="col m3">
-    <% listing.pictures.each do |listing| %>
-      <%= image_tag listing.image, class:'responsive-img' %>
-    <% end %>
+    <% if listing.pictures[0] != nil %>
+      <%= image_tag listing.pictures[0].image, class:'responsive-img' %>  
+    <% end %> 
   </div>
   <div class="col m7 text-left">
     <h3 class="dark-green-text"><%= listing.name %></h3>
