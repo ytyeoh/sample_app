@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161115090800) do
+ActiveRecord::Schema.define(version: 20161212184355) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(version: 20161115090800) do
     t.float    "latitude"
     t.float    "longitude"
     t.string   "address"
-    t.integer  "token",              default: 0 #bump
-    t.integer  "coin",               default: 0 #highlight
+    t.integer  "token",              default: 0
+    t.integer  "coin",               default: 0
     t.datetime "published_at"
     t.integer  "view",               default: 0
     t.string   "search_tags",        default: [],              array: true
@@ -54,6 +54,14 @@ ActiveRecord::Schema.define(version: 20161115090800) do
   end
 
   add_index "listings", ["user_id"], name: "index_listings_on_user_id", using: :btree
+
+  create_table "pictures", force: :cascade do |t|
+    t.integer  "listing_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
 
   create_table "reviews", force: :cascade do |t|
     t.integer  "user_id"

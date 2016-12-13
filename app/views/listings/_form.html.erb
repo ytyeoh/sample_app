@@ -1,5 +1,5 @@
 <div class="row listing-new">
-<%= form_for(@listing, html: { class: "form-horizontal dropzone", role: "form", id:"listing_form" }) do |f| %>
+<%= form_for(@listing, html: { class: "form-horizontal dropzone", multipart: true,  role: "form", id:"listing_form" }) do |f| %>
   <% if @listing.errors.any? %>
     <div class="alert alert-danger alert-dismissable" role="alert">
       <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>

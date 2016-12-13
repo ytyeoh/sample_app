@@ -57,7 +57,10 @@
       Address: <%= @listing.address %>
     </div>
     <div class="col s12">
-      Image: <%= image_tag @listing.image, width: "100%" %>
+      Image: 
+        <% @listing.pictures.each do |x| %>
+          <%= image_tag x.image, width: "100%" %>
+        <% end %>
     </div>
     <div class="col s12">
       Owner: <%= link_to @listing.user.name, user_path(@listing.user_id) %><br><%= image_tag(@listing.user.image) %>

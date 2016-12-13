@@ -47,9 +47,15 @@ class ListingsController < ApplicationController
     @listing = Listing.new(listing_params)
     @listing.user_id = current_user.id
     @listing.published_at = DateTime.now
-    byebug
     respond_to do |format|
       if @listing.save
+        if params[:images]
+          @uploaded_images = params[:images]
+          @uploaded_images.each { |image|
+            byebug
+            @listing.pictures.create(image: image)
+          }
+        end
         @listing.search_tags << @listing.city << @listing.state << @listing.postal_code << @listing.country
         @listing.save
         flash[:notice] = "new listing"
@@ -107,6 +113,6 @@ class ListingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
-      params.require(:listing).permit(:name, :desc, :price, :address, :latitude, :longitude, :token, :coin, :published_at, :image, :imove_in, :property, :furnished, :area, :parking, :bathroom, :bedroom)
+      params.require(:listing).permit(:name, :desc, :price, :address, :latitude, :longitude, :token, :coin, :published_at, :images, :imove_in, :property, :furnished, :area, :parking, :bathroom, :bedroom)
     end
 end

@@ -2,29 +2,17 @@
 $(document).ready(function(){
   Dropzone.autoDiscover = false;
   var myDropzone = new Dropzone('#listing_form', {
-    paramName: "listing[image]", // The name that will be used to transfer the file
+    paramName: "listing[images]", // The name that will be used to transfer the file
     maxFilesize: 2, // MB
     previewsContainer: "#previews",
     addRemoveLinks: true,
     autoProcessQueue: false,
     clickable: "#clickzone",
-    maxFiles:1,
+    maxFiles: 5,
+    parallelUploads: 5,
+    uploadMultiple: true,
     dictDefaultMessage:'',
-    init: function(){
-      if ("<%= @listing.image.url %>" == "/images/original/missing.png"){
-      }
-      else {
-        var mockFile = { name: "old file", size: 12, type: 'image/jpeg' };
-        this.options.addedfile.call(this, mockFile);
-        this.options.thumbnail.call(this, mockFile, "<%= @listing.image.url(:thumb) %>");
-        this.on("addedfile", function(file) {
-          if (mockFile) {
-            this.removeFile(mockFile);
-          }
-          mockFile = file;
-        });
-      };
-    },
+    
     maxfilesexceeded: function(file) {
       this.removeAllFiles(file);
       this.addFile(file);

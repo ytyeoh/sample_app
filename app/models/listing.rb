@@ -1,17 +1,18 @@
 class Listing < ActiveRecord::Base
 	belongs_to :user
 	has_many :favorite_listings
+	has_many :pictures, :dependent => :destroy
 	searchkick autocomplete: ['city']
 	paginates_per 10
 	# attr_accessible :address, :latitude, :longitude
 	geocoded_by :address
-	has_attached_file :image,
-		:styles => {
-	      :thumb => "100x100#",
-	      :small  => "150x150>",
-	      :medium => "200x200" }
-	validates_attachment :image,
-                     content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] }
+	# has_attached_file :image,
+	# 	:styles => {
+	#       :thumb => "100x100#",
+	#       :small  => "150x150>",
+	#       :medium => "200x200" }
+	# validates_attachment :image,
+ #                     content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] }
 	reverse_geocoded_by :latitude, :longitude do |obj,results|
 	  if geo = results.first
 	  	obj.state 	=geo.state
