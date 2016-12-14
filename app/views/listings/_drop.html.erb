@@ -21,12 +21,12 @@ $(document).ready(function(){
         this.options.addedfile.call(this, mockFile);
         this.options.thumbnail.call(this, mockFile, "<%= image.image.url(:thumb) %>");
         <% end %>
-        this.on("addedfile", function(file) {
-          if (mockFile) {
-            this.removeFile(mockFile);
-          }
-          mockFile = file;
-        });
+        // this.on("addedfile", function(file) {
+        //   if (mockFile) {
+        //     this.removeFile(mockFile);
+        //   }
+        //   mockFile = file;
+        // });
       };
     },
     

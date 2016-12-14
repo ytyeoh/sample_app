@@ -72,6 +72,12 @@ class ListingsController < ApplicationController
   def update
     respond_to do |format|
       if @listing.update(listing_params)
+        if params[:images]
+          @uploaded_images = params[:images]
+          @uploaded_images.each { |image, object|
+            @listing.pictures.create(image: object)
+          }
+        end
         flash[:notice] = "update done"
         format.html { redirect_to @listing, notice: 'Listing was successfully updated.' }
         format.json { render :js => "window.location='/listings/#{@listing.id}'" }
