@@ -12,6 +12,23 @@ $(document).ready(function(){
     parallelUploads: 5,
     uploadMultiple: true,
     dictDefaultMessage:'',
+    init: function(){
+      if ("<%= @listing.pictures[0].image.url %>" == "/images/original/missing.png"){
+      }
+      else {
+        <% @listing.pictures.each do |image| %>
+        var mockFile = { name: "old file", size: 12, type: 'image/jpeg' };
+        this.options.addedfile.call(this, mockFile);
+        this.options.thumbnail.call(this, mockFile, "<%= image.image.url(:thumb) %>");
+        <% end %>
+        this.on("addedfile", function(file) {
+          if (mockFile) {
+            this.removeFile(mockFile);
+          }
+          mockFile = file;
+        });
+      };
+    },
     
     maxfilesexceeded: function(file) {
       this.removeAllFiles(file);
@@ -39,5 +56,6 @@ $(document).ready(function(){
   myDropzone.on("queuecomplete", function(file) {
     window.location.href = "/listings/owner";
   });
+  myDropzone.createThumbnailFromUrl(file, imageUrl, callback, crossOrigin);
 })
 </script>
