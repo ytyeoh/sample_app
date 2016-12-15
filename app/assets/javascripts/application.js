@@ -35,6 +35,7 @@ $(document).ready(function(){
   });
   Materialize.updateTextFields();
   $('select').material_select();
+  $('.slider').slider({height: 200, indicators: true});
 });
 
 
