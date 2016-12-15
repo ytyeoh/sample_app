@@ -78,6 +78,11 @@ class ListingsController < ApplicationController
             @listing.pictures.create(image: object)
           }
         end
+        if params[:delete_images]
+          params[:delete_images].each { |id|
+            Picture.find(id).destroy
+          }
+        end
         flash[:notice] = "update done"
         format.html { redirect_to @listing, notice: 'Listing was successfully updated.' }
         format.json { render :js => "window.location='/listings/#{@listing.id}'" }
