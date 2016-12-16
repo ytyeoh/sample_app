@@ -22,9 +22,6 @@ $(document).ready(function(){
       return (previewElement = file.previewElement) != null ? (previewElement.parentNode.removeChild(file.previewElement)) : (void 0);
     },
     init: function(){
-      if ("<%= @listing.pictures[0].image.url %>" == "/images/original/missing.png"){
-      }
-      else {
         <% @listing.pictures.each do |image| %>
         var id = <%= image.id %>
           var mockFile = { size: <%= image.image.size %>, type: 'image/jpeg' };
@@ -32,7 +29,6 @@ $(document).ready(function(){
           this.options.thumbnail.call(this, mockFile, "<%= image.image.url(:thumb) %>");
            $(".dz-preview:last-child").attr("id", id);
         <% end %>
-      };
     },
     accept: function(file, done) {
       if (file.name == "justinbieber.jpg") {

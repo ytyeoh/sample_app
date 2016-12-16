@@ -12,6 +12,7 @@
 //
 
 //= require jquery
+//= require hermitage
 //= require jquery_ujs
 //= require materialize-sprockets
 //= require materialize/extras/nouislider
