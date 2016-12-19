@@ -12,6 +12,7 @@
 //
 
 //= require jquery
+//= require hermitage
 //= require jquery_ujs
 //= require materialize-sprockets
 //= require materialize/extras/nouislider
@@ -35,6 +36,7 @@ $(document).ready(function(){
   });
   Materialize.updateTextFields();
   $('select').material_select();
+  $('.slider').slider({height: 200, interval: 3000, indicators: false});
 });
 
 
@@ -58,3 +60,4 @@ function readURL(input) {
     reader.readAsDataURL(input.files[0]);
   
 }
+

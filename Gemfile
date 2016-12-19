@@ -33,9 +33,12 @@ gem "paperclip", '~> 4.3'
 gem 'paperclip-compression'
 gem 'searchkick'
 gem 'material_icons'
+gem "font-awesome-rails"
 gem 'dropzonejs-rails'
 gem 'kaminari'
 gem 'rack-mini-profiler', require: false
+gem 'hermitage'
+gem 'whenever', :require => false
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rails_12factor', group: :production

@@ -1,74 +1,47 @@
 <%= content_for :title do %>
-  <%= "#{@listing.name} | Favful" %>
+  <%= "#{@listing.name}" %>
 <% end %>
 
 <%= content_for :head do %>
-  <% meta_tag :title, "#{@listing.name}" %>
-  <% meta_tag :description, "#{@listing.desc}" %>
+  <% meta_tag :title, @listing.name %>
+  <% meta_tag :description, @listing.desc %>
   <%= render partial: 'facebook_og', locals: {listing: @listing} %>
   <link rel="canonical" href="<%= request.path %>">
   <meta property="fb:article_style" content="default">
 <% end %>
-<div class="page-header">
-  <%= link_to listings_path, class: 'btn btn-default', 'data-no-turbolink' => true  do %>
-    <span class="glyphicon glyphicon-list-alt"></span>
-    Back
+<div class="page-header-listing">
+  <%= link_to listings_path, class: 'left', 'data-no-turbolink' => true  do %>
+    <i class=" fa fa-4x fa-chevron-left" aria-hidden="true"></i>
   <% end %>
-  <%= link_to edit_listing_path(@listing), class: 'btn btn-primary', 'data-no-turbolink' => true  do %>
-    <span class="glyphicon glyphicon-pencil"></span>
-    Edit
+  <%= link_to edit_listing_path(@listing), class: 'right', 'data-no-turbolink' => true  do %>
+    <h4>Edit</h4>
+    
   <% end %>
-  <h1>Show listing</h1>
   Share<%= render 'share' %>
 </div>
-<div class="container">
+<div class="listing-show">
   <div class="row">
-    <div class="col s12">
-      Name: <%= @listing.name %>
+    <div class="col l5">
+      <%= image_tag @listing.pictures[0].image.url, class:'responsive-img' %>
+
+      <%= render_gallery_for @listing.pictures %>
     </div>
-    <div class="col s12">
-      View: <%= @listing.view %>
+    <div class="col l5">
+      <%= render 'show_item' %>
     </div>
-    <div class="col s12">
-      Desc: <%= @listing.desc %>
+    <div class="col l2">
+      <%= render 'feature_listing' %>
     </div>
-    <div class="col s12">
-      Price: <%= @listing.price %>
+    <div class="col l5"></div>
+    <div class="col l7">
+      <div style='width: 100%;'>
+        <div id="map" style='width: 90%; height: 482px;'></div>
+      </div>
     </div>
-    <div class="col s12">
-      Bedroom: <%= @listing.bedroom %>
-    </div>
-    <div class="col s12">
-      Bathroom: <%= @listing.bathroom %>
-    </div>
-    <div class="col s12">
-      Car Park: <%= @listing.parking %>
-    </div>
-    <div class="col s12">
-      Area: <%= @listing.area %> sqft
-    </div>
-    <div class="col s12">
-      Furnished: <%= @listing.furnished.capitalize  %>
-    </div>
-    <div class="col s12">
-      Type: <%= @listing.property.capitalize  %>
-    </div>
-    <div class="col s12">
-      Address: <%= @listing.address %>
-    </div>
-    <div class="col s12">
-      Image: <%= image_tag @listing.image, width: "100%" %>
-    </div>
-    <div class="col s12">
-      Owner: <%= link_to @listing.user.name, user_path(@listing.user_id) %><br><%= image_tag(@listing.user.image) %>
-    </div>
+    
   </div>
 </div>
 
-<div style='width: 90%;'>
-  <div id="map" style='width: 90%; height: 400px;'></div>
-</div>
-<%= render 'feature_listing' %>
 <%= form_for(@listing, html: { class: "form-horizontal", role: "form" }) do |f| %>
   <%= f.hidden_field :published_at , :value => Time.now, class: "form-control" %>
   <%= f.submit "Bump",  class: "btn btn-primary" if current_user.present? && current_user.id == @listing.user_id && @listing.published_at < 1.day.ago%>

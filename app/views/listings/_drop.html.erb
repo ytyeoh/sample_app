@@ -2,32 +2,33 @@
 $(document).ready(function(){
   Dropzone.autoDiscover = false;
   var myDropzone = new Dropzone('#listing_form', {
-    paramName: "listing[image]", // The name that will be used to transfer the file
+    paramName: "[images]", // The name that will be used to transfer the file
     maxFilesize: 2, // MB
     previewsContainer: "#previews",
     addRemoveLinks: true,
     autoProcessQueue: false,
     clickable: "#clickzone",
-    maxFiles:1,
+    maxFiles: 10,
+    parallelUploads: 10,
+    uploadMultiple: true,
     dictDefaultMessage:'',
-    init: function(){
-      if ("<%= @listing.image.url %>" == "/images/original/missing.png"){
-      }
-      else {
-        var mockFile = { name: "old file", size: 12, type: 'image/jpeg' };
-        this.options.addedfile.call(this, mockFile);
-        this.options.thumbnail.call(this, mockFile, "<%= @listing.image.url(:thumb) %>");
-        this.on("addedfile", function(file) {
-          if (mockFile) {
-            this.removeFile(mockFile);
-          }
-          mockFile = file;
-        });
-      };
+    removedfile: function(file) {
+      var id = $(file.previewTemplate).attr('id');
+      var x = document.getElementById("image");
+      var text = document.createElement('div');
+      text.innerHTML = '<input type="checkbox" name="delete_images[]" value='+id + ' checked />'
+      x.appendChild(text);
+      var previewElement;
+      return (previewElement = file.previewElement) != null ? (previewElement.parentNode.removeChild(file.previewElement)) : (void 0);
     },
-    maxfilesexceeded: function(file) {
-      this.removeAllFiles(file);
-      this.addFile(file);
+    init: function(){
+        <% @listing.pictures.each do |image| %>
+        var id = <%= image.id %>
+          var mockFile = { size: <%= image.image.size %>, type: 'image/jpeg' };
+          this.options.addedfile.call(this, mockFile);
+          this.options.thumbnail.call(this, mockFile, "<%= image.image.url(:thumb) %>");
+           $(".dz-preview:last-child").attr("id", id);
+        <% end %>
     },
     accept: function(file, done) {
       if (file.name == "justinbieber.jpg") {
@@ -51,5 +52,6 @@ $(document).ready(function(){
   myDropzone.on("queuecomplete", function(file) {
     window.location.href = "/listings/owner";
   });
+  
 })
 </script>

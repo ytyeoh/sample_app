@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   resources :favorite_listings, only: [:create, :destroy]
   resources :user_credits, only: [:new, :index]
+  resources :pictures, only: [:destroy]
   resources :listings do 
     collection do
       post :import
