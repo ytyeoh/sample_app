@@ -7,11 +7,11 @@ Hermitage.configure :default do
   original -> item { item.image.url }
   thumbnail -> item { item.image.url(:thumb) }
 #   title nil
-#   list_tag :ul
-#   item_tag :li
-#   list_class 'thumbnails'
-#   item_class 'span4'
-#   link_class 'thumbnail'
+  list_tag :ul
+  item_tag :li
+  list_class 'thumbnails'
+  item_class 'image-li'
+  link_class 'thumbnail'
 #   image_class nil
 #   each_slice nil
 end

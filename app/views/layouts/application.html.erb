@@ -4,15 +4,19 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <meta name="description" content="">
-  <meta name="author" content="">
+  <title>
+    <% if content_for?(:title) %>
+      <%= yield(:title) %>
+    <% else %>
+      <%= t('meta_tags.title.home') %>
+    <% end %>
+  </title>
   <meta name='description'
       content='<%= yield_meta_tag(:description) %>' />
   <meta name='keywords'
     content='<%= yield_meta_tag(:keywords) %>' />
   <meta name='title'
     content='<%= yield_meta_tag(:title) %>' />
-  <title>Starter Template for Bootstrap</title>
   <div id="fb-root"></div>
     <%= render :partial => 'analytics/facebook_sdk' %>
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
