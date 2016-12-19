@@ -38,7 +38,7 @@
     <% flash.each do |name, msg| %>
       <script>
         $(function() {
-          Materialize.toast('<%= msg %>'+'<span><i class="material-icons">clear</i></span>' , 300000);
+          Materialize.toast('<%= msg %>'+'<span><i class="material-icons">clear</i></span>' , 3000);
         });
         $(document).on('click', '#toast-container .toast', function() {
             $(this).fadeOut(function(){
