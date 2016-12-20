@@ -72,6 +72,9 @@ class ListingsController < ApplicationController
   def update
     respond_to do |format|
       if @listing.update(listing_params)
+        @listing.search_tags= []
+        @listing.search_tags << @listing.city << @listing.state << @listing.postal_code << @listing.country
+        @listing.save
         if params[:images]
           @uploaded_images = params[:images]
           @uploaded_images.each { |image, object|
