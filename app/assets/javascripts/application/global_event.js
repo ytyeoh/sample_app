@@ -1,6 +1,18 @@
 var globalEvent = {
   initialize: function() {
+    this.flashAjax();
     this.likeUnlikeAjax();
+  },
+
+  flashAjax: function() {
+    $(document).ajaxSuccess(function(event, request) {
+      var flashMessageHTML, msg;
+      msg = request.responseText;
+      msg = msg.replace(/"/g, '');
+      if (msg) {
+        Materialize.toast( msg +'<span><i class="material-icons">clear</i></span>' , 3000);
+      }
+    });
   },
 
   likeUnlikeAjax: function() {
