@@ -19,10 +19,12 @@ class CreditRecordsController < ApplicationController
       @credit.save
       @user.save
       respond_to do |format|
+        flash[:notice] = 'You successfully Update your lsiting'
         format.html { redirect_to owner_listings_path, notice: 'order succesful' }
       end
     else
       respond_to do |format|
+        flash[:notice] = 'please top up credit to continue'
         format.html { redirect_to listing_path(@listing.id), notice: 'Fail to order' }
       end
     end
