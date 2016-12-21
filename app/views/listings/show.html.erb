@@ -31,6 +31,14 @@
     </div>
     <div class="col l2">
       <%= render 'feature_listing' %>
+      <% if current_user.present? && current_user.id == @listing.user_id %>
+        <%= render 'auto_bump' %>
+        <%= render 'highlight' %>
+        <%= render 'bump' %>
+        <% if @listing.published_at > 1.day.ago %>
+          <p>About <%= ((@listing.published_at + 1.day - Time.now )/3600).round %> hour to bump again<p>
+        <%end%>
+      <% end %>
     </div>
     <div class="col l5"></div>
     <div class="col l7">
@@ -41,14 +49,6 @@
     
   </div>
 </div>
-
-<%= form_for(@listing, html: { class: "form-horizontal", role: "form" }) do |f| %>
-  <%= f.hidden_field :published_at , :value => Time.now, class: "form-control" %>
-  <%= f.submit "Bump",  class: "btn btn-primary" if current_user.present? && current_user.id == @listing.user_id && @listing.published_at < 1.day.ago%>
-<% end %>
-<% if @listing.published_at > 1.day.ago %>
-  <p>About <%= ((@listing.published_at + 1.day - Time.now )/3600).round %> hour to bump again<p>
-<%end%>
 <%= render 'google_map_script' %>
 <script type="text/javascript">
   handler = Gmaps.build('Google');

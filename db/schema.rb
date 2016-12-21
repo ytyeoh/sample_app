@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161212184355) do
+ActiveRecord::Schema.define(version: 20161221035126) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "credit_records", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "credit"
+    t.integer  "balance"
+    t.integer  "item"
+    t.integer  "listing_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "favorite_listings", force: :cascade do |t|
     t.integer "user_id"
