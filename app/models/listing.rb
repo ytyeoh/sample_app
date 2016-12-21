@@ -1,6 +1,7 @@
 class Listing < ActiveRecord::Base
 	belongs_to :user
 	has_many :favorite_listings
+	has_many :credit_records
 	has_many :pictures, :dependent => :destroy
 	searchkick autocomplete: ['city']
 	paginates_per 10

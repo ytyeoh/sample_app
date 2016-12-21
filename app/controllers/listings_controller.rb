@@ -20,6 +20,7 @@ class ListingsController < ApplicationController
   # GET /listings/1
   # GET /listings/1.json
   def show
+    @credit = CreditRecord.new
     @listing = Listing.find(params[:id])
     @hash = Gmaps4rails.build_markers(@listing) do |listing, marker|
       marker.lat listing.latitude

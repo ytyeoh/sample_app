@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :confirmable, :rememberable, :trackable, :validatable
 	has_many :lisitngs
+  has_many :credit_records
   has_many :favorite_listings
   has_many :raters, through: :reviews, class_name: "User", foreign_key: :user_id # The users this user has rated
   has_many :users, through: :reviews, class_name: "User", foreign_key: :reter_id
