@@ -23,7 +23,7 @@ class CreditRecordsController < ApplicationController
       end
     else
       respond_to do |format|
-        format.html { redirect_to listing(@listing.id), notice: 'Fail to order' }
+        format.html { redirect_to listing_path(@listing.id), notice: 'Fail to order' }
       end
     end
   end
