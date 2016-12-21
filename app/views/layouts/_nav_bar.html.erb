@@ -22,6 +22,7 @@
         <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
         <li><%= link_to 'Edit Profile', edit_user_path(current_user.id) %></li>
         <li><%= link_to 'New Listing', new_listing_path, 'data-no-turbolink' => true %></li>
+        <li><%= link_to 'My Listing', owner_listings_path, 'data-no-turbolink' => true %></li>
       <% else %>
         <li><%= link_to 'Sign in', new_user_session_path %></li>
         <li><%= link_to 'Sign up', new_user_registration_path %></li>
