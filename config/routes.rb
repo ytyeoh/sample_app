@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => {:registrations => "users/registrations", :sessions => "users/sessions"}
   resources :users do 
     resources :reviews
+    collection do
+      get :credit
+    end
   end
 
   post '/rate' => 'rater#create', :as => 'rate'

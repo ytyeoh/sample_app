@@ -36,6 +36,7 @@ $(document).ready(function(){
   });
   Materialize.updateTextFields();
   $('select').material_select();
+  $('ul.tabs').tabs();
   $('.slider').slider({height: 200, interval: 3000, indicators: false});
 });
 

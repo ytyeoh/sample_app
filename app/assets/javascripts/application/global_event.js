@@ -9,7 +9,7 @@ var globalEvent = {
       var flashMessageHTML, msg;
       msg = request.responseText;
       msg = msg.replace(/"/g, '');
-      if (msg) {
+      if (msg && msg.length < 5000) {
         Materialize.toast( msg +'<span><i class="material-icons">clear</i></span>' , 3000);
       }
     });
