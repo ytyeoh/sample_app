@@ -21,10 +21,10 @@
     payment
   </div>
   <div id="payments" class="col s12">
-    <div class="row">
       <%= render partial: 'payment__history', collection: @credits, as: :credit  %>
-    </div>
   </div>
-  <div id="purchases" class="col s12">Test 3</div>
+  <div id="purchases" class="col s12">
+    <%= render partial: 'purchase_history', collection: @user.user_credits, as: :purchase %>
+  </div>
   
 </div>

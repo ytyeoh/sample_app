@@ -1,0 +1,11 @@
+<div class="card-panel teal white-text padding-bottom2rem">
+  <div class="col s12 m4">
+    Amount: RM <%= purchase.amount %>
+  </div>
+  <div class="col s12 m4">
+    Credit: <%= purchase.credits %>
+  </div>
+  <div class="col s12 m4">
+    Purchase Time: <%= purchase.created_at.localtime.strftime("%Y-%m-%d %I:%M %p") %>
+  </div>
+</div>
