@@ -18,13 +18,13 @@
     </ul>
   </div>
   <div id="payment" class="col s12">
-    payment
+    <%= render 'payment' %>
   </div>
   <div id="payments" class="col s12">
       <%= render partial: 'payment__history', collection: @credits, as: :credit  %>
   </div>
   <div id="purchases" class="col s12">
-    <%= render partial: 'purchase_history', collection: @user.user_credits, as: :purchase %>
+    <%= render partial: 'purchase_history', collection: @user.user_credits.order('created_at DESC'), as: :purchase %>
   </div>
   
 </div>

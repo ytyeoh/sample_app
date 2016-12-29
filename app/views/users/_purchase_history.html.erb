@@ -1,5 +1,7 @@
-<div class="card-panel teal white-text padding-bottom2rem">
+<div class="card-panel teal black-text padding-bottom2rem <%= purchase_counter%2 != 1 ? 'white-text' : 'lighten-4 black-text' %>">
+
   <div class="col s12 m4">
+    <%= purchase_counter %>
     Amount: RM <%= purchase.amount %>
   </div>
   <div class="col s12 m4">
