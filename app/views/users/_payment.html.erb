@@ -51,7 +51,7 @@
       <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>       
     </div>
   </form>
-
+<script src="https://js.braintreegateway.com/js/braintree-2.23.0.min.js"></script>
 <script>
 var clientToken = "<%= @braintree_token%>";
 
@@ -59,4 +59,3 @@ braintree.setup(clientToken, "dropin", {
   container: "payment-form"
 });
 </script>
-<script src="https://js.braintreegateway.com/js/braintree-2.23.0.min.js"></script>
