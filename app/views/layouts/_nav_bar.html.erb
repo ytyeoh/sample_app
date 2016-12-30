@@ -20,6 +20,7 @@
           </div>
         </li>
         <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+        <li><%= link_to 'Payment', credit_users_path, 'data-no-turbolink' => true %></li>
         <li><%= link_to 'Edit Profile', edit_user_path(current_user.id) %></li>
         <li><%= link_to 'New Listing', new_listing_path, 'data-no-turbolink' => true %></li>
         <li><%= link_to 'My Listing', owner_listings_path, 'data-no-turbolink' => true %></li>
@@ -27,7 +28,6 @@
         <li><%= link_to 'Sign in', new_user_session_path %></li>
         <li><%= link_to 'Sign up', new_user_registration_path %></li>
       <% end %>
-      <li><a href="#modal1" class="modal-trigger">Payment</a></li>
       <li><a href="badges.html">Components</a></li>
       <li><a href="collapsible.html">Javascript</a></li>
       <li><a href="mobile.html">Mobile</a></li>

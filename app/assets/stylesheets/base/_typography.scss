@@ -109,3 +109,12 @@ a{
 .margin-right2rem{
   margin-right: 2rem;
 }
+
+.card-panel.padding-bottom2rem{
+  padding-bottom: 2.5rem;
+}
+@media only screen and (max-width: 992px){
+  .card-panel.padding-bottom2rem{
+    height: 10rem;
+  }
+}

@@ -9,7 +9,6 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @braintree_token = generate_client_token
     @review = Review.new
     @reviews = Review.where(user_id:params[:id])
     @user_credit = UserCredit.where(user_id: current_user)
@@ -61,6 +60,12 @@ class UsersController < ApplicationController
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def credit
+    @user = current_user
+    @credits = current_user.credit_records.order('created_at DESC')
+    @braintree_token = generate_client_token
   end
 
   private
