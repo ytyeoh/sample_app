@@ -2,6 +2,7 @@ var globalEvent = {
   initialize: function() {
     this.flashAjax();
     this.likeUnlikeAjax();
+    this.paymentHide();
   },
 
   flashAjax: function() {
@@ -12,6 +13,17 @@ var globalEvent = {
       if (msg && msg.length < 5000) {
         Materialize.toast( msg +'<span><i class="material-icons">clear</i></span>' , 3000);
       }
+    });
+  },
+
+  paymentHide: function() {
+    $('input[type=radio]').change(function() {
+      $('#payment-form').removeClass('hide');
+      $('.submit-btn').removeClass('hide');
+      $('.value').empty();
+      var x = $('input[type=radio]:checked').val();
+      var msg = 'Amount:' + x;
+      $('.value').append(msg);
     });
   },
 
