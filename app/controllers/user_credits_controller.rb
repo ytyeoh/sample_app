@@ -26,7 +26,7 @@ class UserCreditsController < ApplicationController
       current_user.save
       respond_to do |format|
         if @credit.save
-          format.html { redirect_to user_path(current_user), notice: 'You was successfully purchase credits.' }
+          format.html { redirect_to credit_users_path(:anchor => "purchases"), notice: 'You was successfully purchase credits.' }
           format.json { render :show, status: :created, location: @credit }
         else
           format.html { render :new }
