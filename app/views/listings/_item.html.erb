@@ -1,21 +1,24 @@
-<div class="row listing <%= listing.coin >= 1 ? 'dark-green' : ' ' %>">
-  <div class="col m3 slider">
-    <ul class="slides">
-      <% listing.pictures.each do |image| %>
-        <li>
-          <%= image_tag image.image, class:'responsive-img' %>
-        </li>
+<%= link_to listing do %>
+  <div class="row listing <%= listing.coin >= 1 ? 'dark-green' : ' ' %>">
+    <div class="col m3 slider">
+      <ul class="slides">
+        <% listing.pictures.each do |image| %>
+          <li>
+            <%= image_tag image.image, class:'responsive-img' %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="col m7 text-left">
+      <h3 class="dark-green-text"><%= listing.name %></h3>
+      <h4><i><%= listing.city %></i></h4>
+      <h6><%= listing.address %></h6>
+    </div>
+    <div class="col m2">
+      <% if listing.imove_in %>
+        <div class='btn red lighten-1 margin-top2rem'>Instant Move In</div>
       <% end %>
-    </ul>
+      <h5 class= "dark-green-text">RM<%= listing.price %> <br>per month</h5>
+    </div>
   </div>
-  <div class="col m7 text-left">
-    <h3 class="dark-green-text"><%= listing.name %></h3>
-    <h4><i><%= listing.city %></i></h4>
-    <h6><%= listing.address %></h6>
-  </div>
-  <div class="col m2">
-    <h5 class= "dark-green-text">RM<%= listing.price %> <br>per month</h5>
-    <%= link_to 'View Now', listing, class: "f12 waves-effect waves-light btn" %>
-    <p class="primary-text"><%= "Instant Move In" if listing.imove_in %> </p>
-  </div>
-</div>
+<% end %>
