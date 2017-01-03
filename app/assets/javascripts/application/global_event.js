@@ -22,7 +22,9 @@ var globalEvent = {
       $('.submit-btn').removeClass('hide');
       $('.value').empty();
       var x = $('input[type=radio]:checked').val();
-      var msg = 'Amount:' + x;
+      var id = this.id;
+      var y = document.getElementsByClassName(id)[0].innerHTML;
+      var msg = 'Credit:' + x + '<br>  Total Paid   '+ y;
       $('.value').append(msg);
     });
   },
