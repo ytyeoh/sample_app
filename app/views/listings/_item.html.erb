@@ -15,7 +15,7 @@
     <div class="col m7 text-left">
       <h3 class="dark-green-text"><%= listing.name %></h3>
       <h4><i><%= listing.city %></i></h4>
-      <h6><%= listing.address %></h6>
+      <h6><%= listing.hide == false ? listing.address : '' %></h6>
     </div>
       </div>
     </div>
