@@ -39,12 +39,14 @@
     <%= link_to @listing.user.name, user_path(@listing.user_id) %>
   </div>
   
-  <div class="col s3 owner">
-    <i class="fa fa-map-marker red-text" aria-hidden="true"></i> Address
-  </div>
-  <div class="col s1 owner">:</div>
-  <div class="col s8 owner">
-    <%= @listing.address %>
-  </div>
+  <% unless @listing.hide %>
+    <div class="col s3 owner">
+      <i class="fa fa-map-marker red-text" aria-hidden="true"></i> Address
+    </div>
+    <div class="col s1 owner">:</div>
+    <div class="col s8 owner">
+      <%= @listing.address %>
+    </div>
+  <% end %>
 
 </div>

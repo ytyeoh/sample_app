@@ -110,6 +110,10 @@ a{
   margin-right: 2rem;
 }
 
+.margin-top2rem{
+  margin-top: 2rem;
+}
+
 .card-panel.padding-bottom2rem{
   padding-bottom: 2.5rem;
 }
@@ -118,3 +122,16 @@ a{
     height: 10rem;
   }
 }
+
+.empty-btn, .empty-btn:hover, .empty-btn:focus{
+  background: none;
+  border: 0;
+}
+
+.fav{
+  color: red;
+}
+.fav:hover{
+  color: #C62828;
+}
+

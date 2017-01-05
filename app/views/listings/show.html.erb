@@ -11,7 +11,7 @@
 <% end %>
 <div class="page-header-listing">
   <%= link_to listings_path, class: 'left', 'data-no-turbolink' => true  do %>
-    <i class=" fa fa-4x fa-chevron-left" aria-hidden="true"></i>
+    <i class=" fa fa-3x fa-chevron-left" aria-hidden="true"></i>
   <% end %>
   <%= link_to edit_listing_path(@listing), class: 'right', 'data-no-turbolink' => true  do %>
     <h4>Edit</h4>
@@ -25,11 +25,7 @@
       <%= image_tag @listing.pictures[0].image.url, class:'responsive-img' %>
 
       <%= render_gallery_for @listing.pictures %>
-    </div>
-    <div class="col l5">
-      <%= render 'show_item' %>
-    </div>
-    <div class="col l2">
+      <br>
       <%= render 'feature_listing' %>
       <% if current_user.present? && current_user.id == @listing.user_id %>
         <%= render 'auto_bump' %>
@@ -39,6 +35,9 @@
           <p>About <%= ((@listing.published_at + 1.day - Time.now )/3600).round %> hour to bump again<p>
         <%end%>
       <% end %>
+    </div>
+    <div class="col l7">
+      <%= render 'show_item' %>
     </div>
     <div class="col l5"></div>
     <div class="col l7">

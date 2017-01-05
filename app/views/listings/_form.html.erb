@@ -38,7 +38,10 @@
 
     
     <h5>Location</h5>
-
+    <p>
+      <%= f.check_box :hide %>
+      <label for="listing_hide">Hide Address</label>
+    </p>
     <div class="input-field col s12">
       <label class="active" for="special">address</label>
       <%= f.hidden_field :latitude, id: "latitude" %>
