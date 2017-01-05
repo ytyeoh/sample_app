@@ -122,3 +122,16 @@ a{
     height: 10rem;
   }
 }
+
+.empty-btn, .empty-btn:hover, .empty-btn:focus{
+  background: none;
+  border: 0;
+}
+
+.fav{
+  color: red;
+}
+.fav:hover{
+  color: #C62828;
+}
+
