@@ -8,9 +8,19 @@ var globalEvent = {
   flashAjax: function() {
     $(document).ajaxSuccess(function(event, request) {
       var flashMessageHTML, msg;
-      msg = request.responseText;
-      msg = msg.replace(/"/g, '');
-      if (msg && msg.length < 5000) {
+      if (request.getResponseHeader('X-Message')){
+        msg = request.getResponseHeader('X-Message');
+      }
+      else if (request.responseText.length > 100 || request.responseText.includes("[")){
+        msg === null;
+      }
+      else{
+        msg = request.responseText;
+      }
+
+      if (msg) {
+
+        msg = msg.replace(/"/g, '');
         Materialize.toast( msg +'<span><i class="material-icons">clear</i></span>' , 3000);
       }
     });
