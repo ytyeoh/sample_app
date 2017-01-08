@@ -7,6 +7,16 @@ class UserCreditsController < ApplicationController
     gon.client_token = generate_client_token
   end
 
+  def show
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = Prawn::Document.new
+        send_data pdf.render, filename: 'report.pdf', type: 'application/pdf'
+      end
+    end
+  end
+
   def create
     @credit = UserCredit.new(credit_params)
     @credit.user_id = current_user.id
