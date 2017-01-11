@@ -38,7 +38,8 @@ gem 'dropzonejs-rails'
 gem 'kaminari'
 gem 'rack-mini-profiler', require: false
 gem 'hermitage'
-gem 'prawn'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 gem 'whenever', :require => false
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc

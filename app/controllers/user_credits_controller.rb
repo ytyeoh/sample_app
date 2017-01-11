@@ -11,8 +11,9 @@ class UserCreditsController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        pdf = Prawn::Document.new
-        send_data pdf.render, filename: 'report.pdf', type: 'application/pdf'
+        render :pdf => "show",
+               :template => "user_credits/show.pdf.erb",
+               :layout => "show.html.erb"
       end
     end
   end
