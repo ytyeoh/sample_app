@@ -11,12 +11,16 @@
     margin: 0;
   }
 
+  .card-title{
+    z-index: 9;
+  }
+
   .desc{
     margin: 3rem 0;
   }
 
   .price{
-    color: $dark-green;
+    color: red;
     span{
       font-size: 2rem;
     }
@@ -60,6 +64,7 @@
     height: 30px;
     margin-right: 4px;
     padding: 5px 0 !important;
+    color: $light-green;
 
     .fa {
       margin-top: 1rem;

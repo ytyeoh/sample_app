@@ -35,11 +35,15 @@
           <p>About <%= ((@listing.published_at + 1.day - Time.now )/3600).round %> hour to bump again<p>
         <%end%>
       <% end %>
+      <div class="row">
+        <%= render  partial: 'extra_listing', collection: @listings, as: :listing %>
+      </div>
     </div>
     <div class="col l7">
       <%= render 'show_item' %>
     </div>
-    <div class="col l5"></div>
+    <div class="col l5">
+    </div>
     <div class="col l7">
       <div style='width: 100%;'>
         <div id="map" style='width: 90%; height: 482px;'></div>

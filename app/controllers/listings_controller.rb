@@ -26,7 +26,8 @@ class ListingsController < ApplicationController
       marker.lat listing.latitude
       marker.lng listing.longitude
     end
-    unless @listing.user == current_user
+    @listings = Listing.where(city: @listing.city).order("price ASC").first(6)
+    unless @listing.user.id == current_user.id
       @listing.view += 1
       @listing.save
     end
