@@ -31,6 +31,14 @@ class CreditRecordsController < ApplicationController
   end
 
   def show
-
+    @credit = CreditRecord.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render :pdf => "show",
+               :template => "credit_record/show.pdf.erb",
+               :layout => "show.html.erb"
+      end
+    end
   end
 end
