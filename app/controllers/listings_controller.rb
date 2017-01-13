@@ -121,7 +121,7 @@ class ListingsController < ApplicationController
   end
 
   def fav
-    @listings = current_user.favorite_listings
+    @listings = current_user.favorite_listings.page params[:listing]
   end
 
   private
