@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :listings do 
     collection do
       post :import
-      get :autocomplete, :owner # <= add this line
+      get :autocomplete, :owner, :fav # <= add this line
     end
   end
   
