@@ -3,6 +3,7 @@ var globalEvent = {
     this.flashAjax();
     this.likeUnlikeAjax();
     this.paymentHide();
+    // this.infiniteScroll();
   },
 
   flashAjax: function() {
@@ -66,5 +67,24 @@ var globalEvent = {
       currentFavCount = newFavCount;
     });
   },
-
+  // infiniteScroll: function() {
+  //   $(".infinite-wrapper").infinitescroll({
+  //     navSelector: ".infinite-pagination .pagination",
+  //     nextSelector: ".infinite-pagination .pagination a[rel=next]",
+  //     itemSelector: ".infinite-index .infinite-item",
+  //     animation: true,
+  //     loading: {
+  //       msgText: "<em>Loading more...</em>",
+  //       // img: image_path('loading.gif')
+  //     }
+  //   }, function(arrayOfNewElems) {
+  //     if ($("img.unveil").length) {
+  //       return $("img.unveil").unveil(200, function() {
+  //         return $(this).load(function() {
+  //           return this.style.opacity = 1;
+  //         });
+  //       });
+  //     }
+  //   });
+  // }
 }

@@ -15,6 +15,10 @@ class ListingsController < ApplicationController
       marker.lat listing.latitude
       marker.lng listing.longitude
     end
+    respond_to do |format|
+      format.html { render 'index' }
+      format.js   { render 'infinite_scroll_index' }
+    end
   end
 
   # GET /listings/1

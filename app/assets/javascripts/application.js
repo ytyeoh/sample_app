@@ -23,6 +23,7 @@
 //= require geocomplete
 //= require typeahead
 //= require turbolinks
+//= require jquery.infinitescroll
 //= require_tree .
 
 $(document).ready(function(){

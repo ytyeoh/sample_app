@@ -5,7 +5,7 @@
   </div> 
   <div class="result inline-block">
     <span><%= params[:query] %></span> 
-    <span class="grey-text total"><i><%= @listings.total_count %> results</i></span>
+    <span class="grey-text total"><i><%= @listings.count %>/<%= @listings.total_count %> results</i></span>
   </div>
   <div class="inline-block right">
   <%= link_to new_listing_path, class: 'btn-floating btn-large waves-effect waves-light','data-no-turbolink' => true do %>
@@ -19,12 +19,14 @@
     <div id="map" style='width: 90%; height: 400px;'></div>
     </div>
   </div>
-  <div class="col s12" >
+  <div class="col s12">
     <div id="listing-item">
-      <%= render partial: 'item', collection: @listings.page(params[:listing]), as: :listing %>
+      <span class="infinite-item">
+        <%= render partial: 'item', collection: @listings.page(params[:listing]), as: :listing %>
+      </span>
     </div>
-    <div id="listing-num">
-      <%= paginate @listings.page(params[:listing]), :remote => true, param_name: 'listing', :window => 1 %>
+    <div id="listing-num" >
+      <%= paginate @listings.page(params[:listing]), :remote => true, param_name: 'listing' %>
     </div>
   </div>
 </div>
