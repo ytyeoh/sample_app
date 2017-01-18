@@ -5,6 +5,6 @@ jQuery ->
   $(window).scroll ->
     more_posts_url = $('.next a').attr('href')
     if more_posts_url && $(window).scrollTop() > $(document).height() - $(window).height() - 60
-      $('.pagination').html('<img src="'+image_path('loading.gif')+'" alt="Loading..." title="Loading..." />')
+      $('.pagination').html('<img src="'+image_path('loading.gif')+'" alt="Loading..." title="Loading..." /><span>Loading...</span>')
       $.getScript(more_posts_url)
     return
