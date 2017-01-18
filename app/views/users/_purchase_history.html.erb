@@ -1,5 +1,5 @@
 <div class="card-panel teal black-text padding-bottom2rem <%= purchase_counter%2 != 1 ? 'white-text' : 'lighten-4 black-text' %>">
-  
+  <%= link_to user_credit_path(purchase.id, :format => :pdf) do %>
   <div class="col s12 m2">
     Invoice: <%= purchase.id %>
   </div>
@@ -12,4 +12,5 @@
   <div class="col s12 m4">
     Purchase Time: <%= purchase.created_at.localtime.strftime("%Y-%m-%d %I:%M %p") %>
   </div>
+  <% end %>
 </div>

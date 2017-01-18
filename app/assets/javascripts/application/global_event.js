@@ -65,6 +65,5 @@ var globalEvent = {
       targetFavCount.html(newFavCount);
       currentFavCount = newFavCount;
     });
-  },
-
+  }
 }

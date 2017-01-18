@@ -2,13 +2,13 @@ Rails.application.routes.draw do
 
 
   resources :favorite_listings, only: [:create, :destroy]
-  resources :credit_records, only: [:create]
-  resources :user_credits, only: [:new, :index]
+  resources :credit_records, only: [:create ,:show]
+  resources :user_credits, only: [:new, :index, :show]
   resources :pictures, only: [:destroy]
   resources :listings do 
     collection do
       post :import
-      get :autocomplete, :owner # <= add this line
+      get :autocomplete, :owner, :fav # <= add this line
     end
   end
   
