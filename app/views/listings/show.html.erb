@@ -4,7 +4,8 @@
 
 <%= content_for :head do %>
   <% meta_tag :title, @listing.name %>
-  <% meta_tag :description, @listing.desc %>
+  <% meta_tag :description, @listing.desc.first(150)+'...' %>
+  <% meta_tag :keywords, @listing.search_tags.join(',') %>
   <%= render partial: 'facebook_og', locals: {listing: @listing} %>
   <link rel="canonical" href="<%= request.path %>">
   <meta property="fb:article_style" content="default">

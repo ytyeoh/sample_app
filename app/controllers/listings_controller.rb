@@ -22,6 +22,7 @@ class ListingsController < ApplicationController
   def show
     @credit = CreditRecord.new
     @listing = Listing.find(params[:id])
+    @listing.search_tags << 'room rent' << 'house rent'
     @hash = Gmaps4rails.build_markers(@listing) do |listing, marker|
       marker.lat listing.latitude
       marker.lng listing.longitude
