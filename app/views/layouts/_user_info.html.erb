@@ -6,7 +6,9 @@
     <div class="col s12">
       <span class="black-text">
         <%= link_to current_user.name, edit_user_path(current_user.id) %>
-        Credit:<%= current_user.credit %>
+        <%= link_to credit_users_path do %>
+          Credit: <%= current_user.credit %>
+        <% end %>
       </span>
     </div>
   </div>
