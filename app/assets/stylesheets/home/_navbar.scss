@@ -26,3 +26,13 @@ nav .card-panel{
 .side-nav a{
   padding: 0!important;
 }
+
+@media only screen and (min-width: 992px){
+  .side-nav{
+    .menu-li{
+      position: fixed;
+      bottom: 60px;
+      width: 100%;
+    }
+  }
+}
