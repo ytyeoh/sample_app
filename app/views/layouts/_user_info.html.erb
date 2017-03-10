@@ -7,7 +7,7 @@
       <span class="black-text">
         <%= link_to current_user.name, edit_user_path(current_user.id) %>
         <%= link_to credit_users_path do %>
-          Credit: <%= current_user.credit %>
+          <b>Credit: <%= current_user.credit %></b>
         <% end %>
       </span>
     </div>
