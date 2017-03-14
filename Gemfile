@@ -33,7 +33,7 @@ gem "paperclip", '~> 4.3'
 gem 'paperclip-compression'
 gem 'searchkick'
 gem 'material_icons'
-gem "font-awesome-rails"
+gem "font-awesome-rails", '~> 4.7.0.1'
 gem 'dropzonejs-rails'
 gem 'kaminari'
 gem 'rack-mini-profiler', require: false

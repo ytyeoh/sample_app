@@ -5,10 +5,7 @@
     </div>
     <div class="col s12">
       <span class="black-text">
-        <%= link_to current_user.name, edit_user_path(current_user.id) %>
-        <%= link_to credit_users_path do %>
-          <b>Credit: <%= current_user.credit %></b>
-        <% end %>
+        <%= render 'layouts/menu_block' %>
       </span>
     </div>
   </div>
