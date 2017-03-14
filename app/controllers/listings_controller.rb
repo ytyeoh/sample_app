@@ -28,10 +28,10 @@ class ListingsController < ApplicationController
       marker.lng listing.longitude
     end
     @listings = Listing.where(city: @listing.city).order("price ASC").first(6)
-    unless @listing.user.id == current_user.id
-      @listing.view += 1
-      @listing.save
-    end
+    # unless @listing.user.id == current_user.id
+    #   @listing.view += 1
+    #   @listing.save
+    # end
   end
 
   # GET /listings/new
