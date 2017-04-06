@@ -5,6 +5,7 @@
   <% end %>
 <% else %>
   <%= link_to credit_users_path do %>
-    <b>Credit: <%= current_user.credit %></b>
+    <div class="dark-green-text"><b>Credit: <%= current_user.credit %></b></div>
+    
   <% end %>
 <% end %>
