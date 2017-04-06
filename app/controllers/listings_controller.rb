@@ -5,6 +5,7 @@ class ListingsController < ApplicationController
   # GET /listings
   # GET /listings.json
   def index
+    @credit = CreditRecord.new
     if params[:query].present?
       @listingss = Listing.search params[:query], fields: [:search_tags], where: {imove_in: params[:imove_in], price: {gte: params[:lower], lte: params[:higher]}}, order: {published_at: :desc,}
       @listings = Kaminari.paginate_array(@listingss).page(params[:listing]).per(10)
