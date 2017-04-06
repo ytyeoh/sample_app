@@ -1,30 +1,41 @@
 
-  <div class="row listing <%= listing.coin >= 1 ? 'dark-green' : ' ' %>">
-    <%= link_to listing do %>
-    <div class="col m10 s12">
-      <div class="row">
-        <div class="col m3 s12 slider">
-      <ul class="slides">
-        <% listing.pictures.each do |image| %>
-          <li>
-            <%= image_tag image.image, class:'responsive-img' %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-    <div class="col m7 s12 text-left">
-      <h3 class="dark-green-text"><%= listing.name %></h3>
-      <h4><i><%= listing.city %></i></h4>
-      <h6><%= listing.hide == false ? listing.address : '' %></h6>
-    </div>
+  <div class="row listing <%= listing.coin >= 1 ? 'highlihgt' : ' ' %>">
+    <div class="">
+      <%= link_to listing do %>
+      <div class="col m10 s12">
+        <div class="row">
+          <div class="col m3 s12 slider">
+        <ul class="slides">
+          <% listing.pictures.each do |image| %>
+            <li>
+              <%= image_tag image.image, class:'responsive-img' %>
+            </li>
+          <% end %>
+        </ul>
       </div>
-    </div>
-    <% end %>
-    <div class="col m2 s12">
-      <% if listing.imove_in %>
-        <div class='btn red lighten-1 margin-top2rem'>Instant Move In</div>
+      <div class="col m7 s12 text-left">
+        <h3 class="dark-green-text"><%= listing.name %></h3>
+        <h4><i><%= listing.city %></i></h4>
+        <h6><%= listing.hide == false ? listing.address : '' %></h6>
+      </div>
+        </div>
+      </div>
       <% end %>
-      <h5 class= "dark-green-text">RM<%= listing.price %> <br>per month</h5>
-      <%= render 'feature_listing', :@listing =>listing %>
+
+      <div class="col m2 s12">
+        <% if listing.imove_in %>
+          <div class='btn red lighten-1 margin-top2rem'>Instant Move In</div>
+        <% end %>
+        <h5 class= "dark-green-text">MYR<%= listing.price %>/mth</h5>
+        <%= render 'feature_listing', :@listing =>listing %>
+        <% if current_user.present? && current_user.id == listing.user_id %>
+          <%= render 'auto_bump', :@listing =>listing %>
+          <%= render 'highlight', :@listing =>listing %>
+          <%= render 'bump', :@listing =>listing %>
+          <% if @listing.published_at > 1.day.ago %>
+            <p>About <%= ((@listing.published_at + 1.day - Time.now )/3600).round %> hour to bump again<p>
+          <%end%>
+        <% end %>
+      </div>
     </div>
   </div>
